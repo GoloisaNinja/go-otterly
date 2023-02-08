@@ -1,0 +1,103 @@
+@mixin BasicDivWrapper {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 3rem;
+  width: 100%;
+}
+@mixin PageWrapper {
+  @include BasicDivWrapper;
+  margin-top: 7.5rem;
+  min-height: 100vh;
+  @media (max-width: 450px) {
+    padding: 3rem;
+  }
+}
+@mixin OverridePageWrapper {
+  @include PageWrapper;
+  @media (max-width: 450px) {
+    padding-top: 1rem;
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+}
+@mixin HeroWrapper {
+  margin-bottom: 5rem;
+  line-height: 1;
+  width: 100%;
+}
+@mixin HeroText {
+  font-size: 6rem;
+  padding-top: 3rem;
+  color: #fff;
+  line-height: 1.2;
+  font-weight: 800;
+  @media (min-width: 1000px) {
+    font-size: 8rem;
+  }
+}
+@mixin HeroSubText {
+  font-size: 2.6rem;
+  font-weight: 500;
+  line-height: 1.2;
+  color: #ccc;
+  margin-top: 2rem;
+}
+@mixin PurpleSpan {
+  .purple-span {
+    color: var(--LIGHT_PURPLE);
+  }
+}
+@mixin InfoHeader {
+  font-size: 4rem;
+  line-height: 1.2;
+  color: white;
+  margin-bottom: 2rem;
+  @media (min-width: 1000px) {
+    font-size: 6rem;
+  }
+}
+@mixin Info {
+  font-size: 2.6rem;
+  font-weight: 500;
+  color: white;
+  line-height: 1.2;
+}
+@mixin Quote {
+  font-size: 1.6rem;
+  font-weight: 700;
+  font-style: italic;
+  padding: 5rem 2rem;
+  color: black;
+  background-color: #ddd;
+  border-radius: 5px;
+  line-height: 1.3;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  transition: all 0.4s ease-in-out;
+  &:hover {
+    background-color: var(--MAIN_PURPLE);
+    color: #fff;
+    transform: scale(1.03);
+  }
+  @media (min-width: 1000px) {
+    font-size: 2rem;
+  }
+}
+@mixin CommonMenuItem {
+  text-align: left;
+  font-family: 'VT323', monospace;
+  font-size: 1.6rem;
+  padding: .5rem;
+}
+// animations
+@mixin FadeIn {
+  @keyframes fadeIn {
+    from { opacity: 0 }
+    to { opacity: 1 }
+  }
+}
+@mixin Typing {
+  @keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+  }
+}

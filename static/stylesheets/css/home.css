@@ -1,0 +1,271 @@
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.hero-wrapper {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 3rem;
+  width: 100%;
+  margin-top: 7.5rem;
+}
+
+.hero-outer-wrapper {
+  padding: 3rem 0 5rem 0;
+  line-height: 1;
+  width: 100%;
+}
+
+.hero-content-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-top: 4rem;
+}
+
+.hero-text {
+  font-size: 6rem;
+  color: #fff;
+  line-height: 1.2;
+}
+.hero-text::after {
+  content: "_";
+  margin-left: 0.5rem;
+  font-weight: 300;
+  animation-name: fadeIn;
+  animation-fill-mode: backwards;
+  animation-iteration-count: 5;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+}
+@media (max-width: 385px) {
+  .hero-text {
+    font-size: 5rem;
+  }
+}
+@media (max-width: 592px) {
+  .hero-text {
+    height: 14.4rem;
+  }
+}
+@media (min-width: 1000px) {
+  .hero-text {
+    font-size: 8rem;
+  }
+}
+
+.hero-sub-text {
+  font-family: "Caveat", cursive;
+  font-size: 5.5rem;
+  color: #fff;
+  text-shadow: 0 0 5px #fff, 0 0 10px #d84dff, 0 0 15px #d84dff, 0 0 20px #d84dff, 0 0 25px #d84dff, 0 0 35px #d84dff, 0 0 40px #d84dff;
+  animation-name: fadeIn;
+  animation-delay: 2.5s;
+  animation-duration: 1.4s;
+  animation-fill-mode: backwards;
+}
+@media (min-width: 1000px) {
+  .hero-sub-text {
+    font-size: 7rem;
+  }
+}
+
+.bg-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  min-height: 400px;
+  animation-delay: 0.4s;
+  animation-fill-mode: backwards;
+}
+.bg-wrapper:before {
+  content: " ";
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.07;
+  background-image: url("/static/images/pixelGameBG.webp");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50% 0;
+}
+
+.overlay-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.waving-otter {
+  width: 20rem;
+  margin-right: 1.2rem;
+}
+@media (min-width: 400px) {
+  .waving-otter {
+    width: 25rem;
+  }
+}
+@media (min-width: 850px) {
+  .waving-otter {
+    width: 30rem;
+  }
+}
+
+.oh-hai {
+  background: #fff;
+  border-radius: 3rem;
+  align-self: flex-start;
+  margin-top: 2.5rem;
+  padding: 2rem;
+  font-family: "VT323", monospace;
+  font-size: 3rem;
+  font-weight: 600;
+  color: #000000;
+  margin-left: -6rem;
+  min-width: 135px;
+  text-align: center;
+}
+@media (max-width: 445px) {
+  .oh-hai {
+    font-size: 2.6rem;
+  }
+}
+
+.hero-infobox-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.infobox {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-height: 250px;
+}
+@media (max-width: 350px) {
+  .infobox {
+    min-height: 250px;
+  }
+}
+@media (min-width: 351px) {
+  .infobox {
+    min-height: 200px;
+  }
+}
+@media (min-width: 425px) {
+  .infobox {
+    min-height: 185px;
+  }
+}
+
+.hero-info-header {
+  font-size: 4rem;
+  line-height: 1.2;
+  color: white;
+  margin-bottom: 2rem;
+}
+@media (min-width: 1000px) {
+  .hero-info-header {
+    font-size: 6rem;
+  }
+}
+
+.hero-info {
+  font-size: 2.6rem;
+  font-weight: 500;
+  color: white;
+  line-height: 1.2;
+}
+
+.button-wrapper {
+  display: flex;
+  justify-content: left;
+  width: 100%;
+  margin-top: 6rem;
+}
+.button-wrapper > button:last-child {
+  margin-left: 3rem;
+}
+
+.hero-lower-wrapper {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 3rem;
+  width: 100%;
+  margin-top: 4rem;
+  margin-bottom: 2rem;
+}
+
+.lower-intro {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 6rem;
+}
+
+.lower-info-header {
+  font-size: 4rem;
+  line-height: 1.2;
+  color: white;
+  margin-bottom: 2rem;
+  color: #eee;
+}
+@media (min-width: 1000px) {
+  .lower-info-header {
+    font-size: 6rem;
+  }
+}
+
+.lower-info {
+  font-size: 2.6rem;
+  font-weight: 500;
+  color: white;
+  line-height: 1.2;
+  color: #ccc;
+}
+
+.quote-grid {
+  display: grid;
+  grid-gap: 1.5rem;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin: 2rem 0;
+}
+@media (max-width: 500px) {
+  .quote-grid {
+    grid-template-columns: 1fr;
+    grid-gap: 3.5rem;
+  }
+}
+
+.quote {
+  font-size: 1.6rem;
+  font-weight: 700;
+  font-style: italic;
+  padding: 5rem 2rem;
+  color: black;
+  background-color: #ddd;
+  border-radius: 5px;
+  line-height: 1.3;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  transition: all 0.4s ease-in-out;
+}
+.quote:hover {
+  background-color: var(--MAIN_PURPLE);
+  color: #fff;
+  transform: scale(1.03);
+}
+@media (min-width: 1000px) {
+  .quote {
+    font-size: 2rem;
+  }
+}
+
+/*# sourceMappingURL=home.css.map */

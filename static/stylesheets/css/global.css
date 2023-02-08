@@ -1,0 +1,107 @@
+:root {
+    --IBM_BLUE: #124596;
+    --IBM_GRAY: #7a7a7a;
+    --MAIN_PURPLE: #d84dff;
+    --BUTTON_PURPLE: #b907eb;
+    --LIGHT_PURPLE: #dd6afc;
+    --MAIN_GRAY: #333333;
+    --LIGHT_GRAY: #ccc;
+    --MENU_BAR_GRAY: #dbdbdb;
+    --OFF_WHITE: #eee;
+    --CONSOLE_GREEN: #46be0f;
+    --CONSOLE_ORANGE: #be870f;
+    --CONSOLE_ERROR: #ff3037;
+    --LIGHT_TEAL: #4fd3d3;
+    --BUTTON_PURPLE_HOVER: #9304ba;
+    --BUTTON_GREEN_HOVER: #58ed13;
+    --BUTTON_BLACK_HOVER: #242424;
+    --BUTTON_DEFAULT_HOVER: #e6e6e6;
+    --SVG-LIGHT-FILTER: invert(98%) sepia(5%) saturate(0%) hue-rotate(71deg) brightness(114%) contrast(100%);
+    --SVG-DARK-FILTER: invert(0%) sepia(9%) saturate(7500%) hue-rotate(262deg) brightness(87%) contrast(113%);
+}
+.theme-light {
+    --loading_screen_text: var(--OFF_WHITE);
+    --loading_screen_color: var(--IBM_BLUE);
+    --screen_color: var(--OFF_WHITE);
+    --menu_bar_color: var(--IBM_BLUE);
+    --menu_items_color: white;
+    --drop_down_text: white;
+    --text_color: black;
+    --status_color: white;
+    --status_highlight: var(--CONSOLE_ORANGE);
+    --options_color: white;
+    --options_highlight: var(--IBM_GRAY);
+    --input_text_color: white;
+    --input_highlight: var(--IBM_BLUE);
+    --error_color: var(--CONSOLE_ERROR);
+    --error_highlight: none;
+    --modal_bg_color: var(--LIGHT_GRAY);
+    --modal_dismiss_btn: var(--IBM_BLUE);
+    --modal_dismiss_text_color: white;
+    --svg-filter: var(--SVG-LIGHT-FILTER);
+}
+.theme-dark {
+    --loading_screen_text: var(--CONSOLE_GREEN);
+    --loading_screen_color: black;
+    --screen_color: black;
+    --menu_bar_color: var(--MENU_BAR_GRAY);
+    --menu_items_color: black;
+    --drop_down_text: black;
+    --text_color: white;
+    --status_color: var(--CONSOLE_GREEN);
+    --status_highlight: none;
+    --options_color: var(--CONSOLE_GREEN);
+    --options_highlight: none;
+    --input_text_color: black;
+    --input_highlight: var(--CONSOLE_GREEN);
+    --error_color: white;
+    --error_highlight: var(--CONSOLE_ERROR);
+    --modal_bg_color: var(--MAIN_GRAY);
+    --modal_dismiss_btn: var(--CONSOLE_GREEN);
+    --modal_dismiss_text_color: black;
+    --svg-filter: var(--SVG-DARK-FILTER);
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+html {
+    font-size: 62.5%;
+    line-height: 1.6;
+}
+body {
+    background-color: #333333;
+}
+button {
+    cursor: pointer;
+    border: none;
+    background: none;
+}
+.btn {
+    font-size: 1.6rem;
+    font-weight: 500;
+    background-color: var(--BUTTON_PURPLE);
+    color: white;
+    border-radius: 5px;
+    padding: 2rem;
+    transition: all 0.8s ease-in-out;
+}
+.btn.purple:hover {
+    background-color: var(--BUTTON_PURPLE_HOVER);
+}
+.btn.default {
+    background-color: white;
+    color: black;
+}
+.btn.default:hover {
+    background-color: var(--BUTTON_DEFAULT_HOVER);
+}
+.btn.green {
+    background-color: var(--CONSOLE_GREEN);
+    color: black;
+}
+.btn.green:hover {
+    background-color: var(--BUTTON_GREEN_HOVER);
+}

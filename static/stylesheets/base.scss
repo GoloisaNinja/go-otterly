@@ -1,0 +1,7 @@
+@import './_navbar.scss';
+@import './_footer.scss';
+@import './_mixins.scss';
+
+@include NavBarStyles;
+@include PurpleSpan;
+@include FooterStyles;

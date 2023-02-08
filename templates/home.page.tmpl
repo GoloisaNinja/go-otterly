@@ -1,0 +1,39 @@
+{{template "base" .}}
+{{define "title"}}
+    Otterly Ridiculous History | Home Page
+{{end}}
+{{define "css"}}
+    <link rel="stylesheet" href="../static/stylesheets/css/home.css" />
+{{end}}
+{{define "content"}}
+   {{block "home-hero" .}}
+   {{end}}
+   {{block "home-lower" .}}
+   {{end}}
+{{end}}
+{{define "js"}}
+    <script type="module">
+        import { Typewriter } from "../static/js/utils.js";
+        const str = "Otterly Ridiculous"
+        const heroEl = document.getElementById("hero-text")
+        Typewriter(str, heroEl)
+    </script>
+        <script type="module">
+            import {Quotes} from "../static/js/utils.js";
+            const randomQuotes = [];
+            function getQuotesAndPopulate() {
+                while(randomQuotes.length < 3) {
+                    let qi = Math.floor(Math.random() * Quotes.length)
+                    let quote = Quotes[qi]
+                    if (!randomQuotes.includes(quote)) {
+                        randomQuotes.push(quote);
+                    }
+                }
+                const quotes = document.querySelectorAll(".quote")
+                quotes.forEach((q, index) => {
+                    q.innerHTML = randomQuotes[index]
+                })
+            }
+            getQuotesAndPopulate()
+        </script>
+{{end}}

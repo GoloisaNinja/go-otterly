@@ -1,0 +1,31 @@
+@import "./mixins";
+@include Typing;
+.bootloader-wrapper {
+  border-radius: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+  justify-content: center;
+  background-color: var(--loading_screen_color);
+  @media (min-width: 450px) {
+    padding: 3rem;
+  }
+}
+.loading-screen {
+  display: block; // display: block - change this to none during dev to switch off loading
+}
+.load-screen-wrapper {
+  display: flex;
+  flex-direction: column;
+  line-height: .75;
+  min-height: 250px;
+  > p {
+    overflow: hidden;
+    white-space: nowrap;
+    font-size: 1.8rem;
+    color: var(--loading_screen_text);
+    font-family: 'VT323', monospace;
+    font-weight: 800;
+    animation: typing 2s steps(75, end);
+  }
+}

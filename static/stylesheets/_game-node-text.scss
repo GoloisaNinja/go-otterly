@@ -1,0 +1,49 @@
+@import "./mixins";
+
+@include FadeIn;
+@include Typing;
+
+.game-content-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 1rem 1rem 1rem;
+  @media (min-width: 450px) {
+    padding: 0 3rem 3rem 3rem;
+  }
+}
+.status-wrapper {
+  background-color: var(--status_highlight);
+  margin-bottom: 1rem;
+}
+#status {
+  font-size: 1.85rem;
+  font-family: 'VT323', monospace;
+  font-weight: 800;
+}
+.status {
+  font-size: 1.85rem;
+  margin-bottom: 0;
+  padding-left: .3rem;
+  color: var(--status_color);
+  animation: typing 5s steps(95, end);
+  overflow: hidden;
+  white-space: nowrap;
+  font-size: 1.8rem;
+  font-family: 'VT323', monospace;
+  font-weight: 800;
+  &::after {
+    content: " _";
+    animation: fadeIn 1s infinite;
+    animation-fill-mode: backwards;
+  }
+}
+.node-text {
+  color: var(--text_color);
+  font-size: 1.85rem;
+  letter-spacing: .12rem;
+  line-height: 1.3;
+  margin-bottom: 4rem;
+  font-family: 'VT323', monospace;
+  white-space: pre-line;
+}

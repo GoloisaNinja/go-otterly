@@ -1,0 +1,66 @@
+@import './mixins';
+.menu-wrapper {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  padding-top: .50rem;
+  padding-bottom: .50rem;
+  background-color: var(--menu_bar_color);
+  > svg {
+    filter: var(--svg-filter);
+    margin-left: .5rem;
+    margin-right: 1rem;
+    width: 3rem;
+    height: 3rem;
+  }
+  margin-bottom: 3rem;
+}
+.menu-button {
+  background: none;
+  outline: none;
+  border: none;
+  font-family: 'VT323', monospace;
+  font-size: 1.65rem;
+  margin-left: 2rem;
+  color: var(--menu_items_color);
+  cursor: pointer;
+}
+.content-dropdown {
+  display: none;
+  position: absolute;
+  background-color: var(--menu_bar_color);
+  min-width: 150px;
+  padding: 1.25rem;
+  z-index: 1;
+  &.show {
+    display: block;
+  }
+}
+.item-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  > p {
+    @include CommonMenuItem;
+    color: var(--drop_down_text);
+  }
+  > button {
+    @include CommonMenuItem;
+    color: var(--menu_items_color);
+    &:hover {
+      background-color: black;
+      color: white;
+    }
+  }
+}
+.menu-points {
+  color: var(--menu_items_color);
+  font-family: 'VT323', monospace;
+  font-size: 1.65rem;
+  margin-left: auto;
+  min-width: 85px;
+}
+#point-span {
+  font-family: 'VT323', monospace;
+  font-size: 1.65rem;
+}

@@ -1,0 +1,69 @@
+@import './_mixins';
+@include FadeIn;
+.games-wrapper {
+  @include OverridePageWrapper;
+}
+.hero-wrapper {
+  @include HeroWrapper;
+}
+.hero-text {
+  @include HeroText;
+}
+.hero-sub-text {
+  @include HeroSubText;
+}
+.games-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 3rem;
+  @media (max-width: 900px) {
+    grid-template-columns: 1fr 1fr;
+  }
+  @media (max-width: 585px) {
+    grid-template-columns: 1fr;
+  }
+}
+.game-card-wrapper {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #eee;
+  width: 100%;
+  cursor: not-allowed;
+  opacity: .3;
+  position: relative;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  animation: fadeIn 1.8s ease-in-out;
+  transition: all .4s ease-in-out;
+  &:hover {
+    transform: scale(1.03);
+  }
+}
+.game-card-img {
+  width: 100%;
+}
+.game-text-wrapper {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  background-color: black;
+  justify-content: center;
+  flex: 1;
+}
+.game-title {
+  font-size: 2.4rem;
+  color: #fff;
+}
+.game-description {
+  font-family: 'VT323', monospace;
+  font-size: 1.6rem;
+  line-height: 1;
+  color: #eee;
+}
+.game-link {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}

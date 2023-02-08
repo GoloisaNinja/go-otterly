@@ -1,0 +1,87 @@
+{{template "base" .}}
+{{define "title"}}
+    {{.Data.game.Title}}
+{{end}}
+{{define "css"}}
+    <link rel="stylesheet" href="../static/stylesheets/css/game.css"/>
+{{end}}
+{{define "content"}}
+    <div class="game-template-wrapper">
+        {{block "game-loading" .}}
+        {{end}}
+        <div id="gi-wrapper" class="game-interface-wrapper">
+            <div id="game-screen" class="game-screen">
+                <div class="menu-wrapper">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Pro 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M192 64C86 64 0 150 0 256S86 448 192 448H448c106 0 192-86 192-192s-86-192-192-192H192zM496 248c-22.1 0-40-17.9-40-40s17.9-40 40-40s40 17.9 40 40s-17.9 40-40 40zm-24 56c0 22.1-17.9 40-40 40s-40-17.9-40-40s17.9-40 40-40s40 17.9 40 40zM168 200c0-13.3 10.7-24 24-24s24 10.7 24 24v32h32c13.3 0 24 10.7 24 24s-10.7 24-24 24H216v32c0 13.3-10.7 24-24 24s-24-10.7-24-24V280H136c-13.3 0-24-10.7-24-24s10.7-24 24-24h32V200z"/></svg>
+                    <div class="menu-item-wrapper">
+                        <button class="menu-button" id="menu-button">Game</button>
+                        <div class="content-dropdown" id="Game-drop-content">
+                            <div class="item-wrapper">
+                                <p>{{.Data.game.Title}}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="menu-item-wrapper">
+                        <button class="menu-button" id="menu-button">File</button>
+                        <div class="content-dropdown" id="File-drop-content">
+                            <div class="item-wrapper">
+                                <button id="theme-toggle">theme</button>
+                                <button id="reset-button">reset</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="menu-item-wrapper">
+                        <button class="menu-button" id="menu-button">Inventory</button>
+                        <div class="content-dropdown" id="Inventory-drop-content">
+                            <div class="item-wrapper inventory"></div>
+                        </div>
+                    </div>
+                    <p class="menu-points">Points: <span id="point-span"></span></p>
+                </div>
+                <div class="game-content-wrapper" id="game-content-wrapper">
+                    <div class="status-wrapper">
+                        <p class="status">Status: <span id="status"></span></p>
+                    </div>
+                    <p class="node-text" id="nodeText">{{.Data.game.Node.Text}}</p>
+                    <div class="options-wrapper" id="options-wrapper">
+                        {{range $val := .Data.game.Node.Options}}
+                            <p class="option" id={{$val.ID}} data-command={{$val.Command}}>{{$val.Text}}</p>
+                        {{end}}
+                    </div>
+                    <div class="input-wrapper">
+                        <span class="terminal-span">command: </span>
+                        <input class="user-input" id="user-input"/>
+                    </div>
+                    <p class="error">Error@Console ~ % <span id="error-message">null</span></p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+{{end}}
+{{define "js"}}
+    <script src="
+    https://cdn.jsdelivr.net/npm/axios@1.3.1/dist/axios.min.js
+    "></script>
+    <script type="module">
+        import {gameState} from "../static/js/gameState.js";
+        import {GameStartUp} from "../static/js/gameStartUp.js";
+        import {GetNodeAndAlignState, ReturnNextNode} from "../static/js/gameLogic.js";
+
+        const gs = gameState()
+        const gameTitle = {{.Data.game.Title}}
+        const defaultOptions = {{.Data.game.Node.Options}}
+        GameStartUp(gs, gameTitle)
+
+        async function handleInput(userCommand) {
+            const nextNode = ReturnNextNode(gs, userCommand, defaultOptions)
+            await GetNodeAndAlignState(gs, nextNode)
+        }
+        const ui = document.getElementById("user-input")
+        ui.addEventListener("keydown", (e) => {
+            if (e.key === "Enter") {
+                handleInput(e.target.value)
+            }
+        })
+    </script>
+{{end}}

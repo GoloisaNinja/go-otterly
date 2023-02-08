@@ -1,0 +1,29 @@
+@import "./mixins";
+@import "./game-loading"; // css related to game loading screen animation
+@import './game-menu-bar'; // css related to the game menu bar
+@import "./game-node-text"; // css related to the status and node text
+@import "./game-options"; // css related to the game options
+@import "./game-input-error"; // css related to the input and error sections
+
+.game-template-wrapper {
+  @include PageWrapper;
+  @media(max-width: 450px) {
+    padding: 1rem;
+  }
+}
+
+.game-interface-wrapper {
+  display: none; // display: none - change this to flex during dev to skip loading
+  flex-direction: column;
+}
+.game-screen {
+  background: var(--screen_color);
+  border-radius: 0;
+  display: flex;
+  flex-direction: column;
+  margin-top: 3rem;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+
+

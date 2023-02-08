@@ -1,0 +1,14 @@
+
+.options-wrapper {
+  background: var(--options_highlight);
+  margin-bottom: 2rem;
+  > p:not(:last-child) {
+    margin-bottom: 1rem;
+  }
+}
+.option {
+  color: var(--options_color);
+  margin-bottom: 0;
+  font-size: 1.8rem;
+  font-family: 'VT323', monospace;
+}

@@ -1,0 +1,50 @@
+@import './_mixins.scss';
+@mixin FooterStyles {
+  .footer-wrapper {
+    @include BasicDivWrapper;
+    background-color: black;
+    margin-top: 6rem;
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .footer-outer-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .footer-inner-wrapper {
+    display: flex;
+  }
+  .footer-logo {
+    width: 10rem;
+    margin-right: -1.5rem;
+  }
+  .footer-logo-text {
+    font-size: 1.5rem;
+    color: #fff;
+    align-self: flex-end;
+    margin-bottom: 1rem;
+  }
+  .footerlink-wrapper {
+    display: flex;
+    flex-direction: column;
+    margin-left: 3.5rem;
+    margin-top: 1.5rem;
+    > a:not(:last-child) {
+      margin-bottom: 1.4rem;
+    }
+  }
+  .footerlink {
+    text-decoration: none;
+    color: #fff;
+    font-size: 1.4rem;
+    font-weight: 700;
+    max-width: 300px;
+  }
+  .copyright {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 1.2rem;
+  }
+}
