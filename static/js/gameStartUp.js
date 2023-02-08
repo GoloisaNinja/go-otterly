@@ -1,9 +1,9 @@
-import {CheckMenuDropDowns, ToggleMenuShow, Typewriter, ThemeToggle} from "./utils.js";
-import {BODY,GAME_AREA,MENU_BUTTONS,THEME_TOGGLE_BTN, RESET_BUTTON,GAME_OPTIONS,INVENTORY_MENU,STATUS,POINTS} from "./gameScreenElements.js";
+import {CheckMenuDropDowns, ToggleMenuShow, Typewriter, ThemeToggle, InventoryModalDismiss} from "./utils.js";
+import {BODY,GAME_AREA,MENU_BUTTONS,THEME_TOGGLE_BTN, RESET_BUTTON,GAME_OPTIONS,INVENTORY_MENU,STATUS,POINTS, MODAL_DISMISS_BUTTON} from "./gameScreenElements.js";
 import {GetNodeAndAlignState} from "./gameLogic.js";
 import {ExecuteLoadingScreen} from "./loadingScreen.js";
 
-export function GameStartUp(gs, gameTitle) {
+export function GameStartUp(gs, gameTitle, totalNodes) {
     // IIFE to check/set theme from local storage
     (function() {
         if (localStorage.getItem("game-theme") !== null) {
@@ -22,8 +22,11 @@ export function GameStartUp(gs, gameTitle) {
     const inv = gs.getInventory()
     const status = gs.getStatus()
     const points = gs.getPoints()
+    // Set the Game Title and Total Nodes
+    gs.setGameTitle(gameTitle)
+    gs.setTotalNodes(totalNodes)
     // Run the Loading Screen Func Animation
-    ExecuteLoadingScreen(gameTitle)
+    ExecuteLoadingScreen(gameTitle) // Comment this out to bypass loading during dev
     // Set event listeners for the game area and the menu buttons
     GAME_AREA.addEventListener("click", CheckMenuDropDowns)
     MENU_BUTTONS.forEach((node) => {
@@ -34,14 +37,15 @@ export function GameStartUp(gs, gameTitle) {
     })
     THEME_TOGGLE_BTN.addEventListener("click", ThemeToggle)
     RESET_BUTTON.addEventListener("click", async () => {
-        gs.resetState()
         CheckMenuDropDowns()
         await GetNodeAndAlignState(gs, "1")
     }, false)
+    // Set the listener for the modal dismiss button
+    MODAL_DISMISS_BUTTON.addEventListener("click", InventoryModalDismiss)
     // Run the Typewriter Animation on all initial options elements
     GAME_OPTIONS.forEach((opt) => {
         let str = opt.childNodes[0].nodeValue
-        Typewriter(str, opt)
+        Typewriter(str, opt, 50)
     })
     // Sets initial Inventory
     const initialInventory = document.createElement("p")

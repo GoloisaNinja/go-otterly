@@ -6,16 +6,18 @@ type OptionReqs struct {
 }
 
 type GameOptions struct {
-	ID        string
-	Text      string
-	Command   string
-	Mood      string
-	HasReqs   bool
-	Requires  OptionReqs
-	Inventory string
-	NextNode  string
-	PlayType  string
-	DeathNode bool
+	ID          string
+	Text        string
+	Command     string
+	Mood        string
+	HasReqs     bool
+	Requires    OptionReqs
+	Inventory   string
+	NextNode    string
+	PlayType    string
+	DeathNode   bool
+	AfterAction bool
+	StoryArc    string
 }
 
 type GameNode struct {

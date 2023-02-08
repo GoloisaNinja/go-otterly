@@ -1,0 +1,72 @@
+@import "./mixins";
+@include FadeIn;
+
+.inventory-wrapper {
+  display: grid;
+  align-items: center;
+  justify-content: space-around;
+  min-height: 150px;
+  grid-template-areas: "title pic"
+        "added pic"
+        "btn btn";
+}
+.inventory-img {
+  grid-area: pic;
+  width: 120px;
+  padding: 1rem;
+  @media (max-width: 465px) {
+    width: 100px;
+  }
+  @media (max-width: 400px) {
+    width: 90px;
+  }
+  @media (max-width: 365px) {
+    width: 75px;
+  }
+}
+.inventory-title {
+  @include TypeWriterStylePTag;
+  grid-area: title;
+  font-family: 'VT323', monospace;
+  font-size: 3rem;
+  color: var(--text_color);
+  margin-bottom: 0;
+  align-self: flex-end;
+  animation-duration: 1s;
+  @media (max-width: 465px) {
+    font-size: 2.6rem;
+  }
+  @media (max-width: 350px) {
+    font-size: 2.4rem;
+  }
+}
+.inventory-added, .inventory-added-dynamic {
+  grid-area: added;
+  font-family: 'VT323', monospace;
+  font-size: 2.8rem;
+  text-align: center;
+  color: var(--text_color);
+  align-self: center;
+  animation: fadeIn .5s ease;
+  animation-delay: 1s;
+  animation-fill-mode: backwards;
+  @media (max-width: 465px) {
+    font-size: 2.6rem;
+  }
+}
+.inventory-dismiss {
+  grid-area: btn;
+  background-color: var(--modal_dismiss_btn);
+  border: 2px var(--modal_dismiss_btn) solid;
+  font-family: 'VT323', monospace;
+  font-size: 2.4rem;
+  padding: 1.2rem;
+  margin-top: 2.4rem;
+  margin-bottom: 1rem;
+  color: var(--modal_dismiss_text_color);
+  transition: all .4s ease-in-out;
+  &:focus {
+    border: 2px var(--text_color) solid;
+    transform: scale(1.02);
+  }
+}

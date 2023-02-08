@@ -1,8 +1,7 @@
-import {MENU_DROPDOWNS, BODY, GAME_WRAPPER} from "./gameScreenElements.js";
+import {MENU_DROPDOWNS, BODY, GAME_WRAPPER, MODAL_OVERLAY_WRAPPER, MODAL_WRAPPER} from "./gameScreenElements.js";
 
-export function Typewriter(str, el) {
+export function Typewriter(str, el, speed = 125) {
     let textPosition = 0;
-    let speed = 125;
     function typeEffect() {
         el.innerHTML = str.substring(0, textPosition);
         if (textPosition !== str.length + 1) {
@@ -89,4 +88,8 @@ export function ScrollNodeTextToTop() {
     const yPos = GAME_WRAPPER.getBoundingClientRect().top
     const yOffset = yPos + window.scrollY
     window.scroll({left: 0, top: 0, behavior: "smooth"})
+}
+export function InventoryModalDismiss() {
+    MODAL_WRAPPER.classList.remove("show")
+    MODAL_OVERLAY_WRAPPER.classList.remove("show")
 }

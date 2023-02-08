@@ -31,7 +31,6 @@
 {{end}}
 {{define "js"}}
 <script>
-
     const games = {{.Data.games}}
     for (let game of games) {
         let gcid = "gc" + game.ID

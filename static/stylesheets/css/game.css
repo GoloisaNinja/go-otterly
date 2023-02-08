@@ -252,6 +252,138 @@
   background-color: var(--error_highlight);
 }
 
+.modal-wrapper {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 95%;
+  max-height: 95%;
+  z-index: 4;
+  background-color: var(--modal_bg_color);
+  padding: 1rem;
+  border-radius: 3px;
+  overflow: auto;
+  max-width: 425px;
+}
+.modal-wrapper.show {
+  display: block;
+}
+
+.overlay {
+  display: none;
+  position: fixed;
+  z-index: 3;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  opacity: 0.85;
+}
+.overlay.show {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.inventory-wrapper {
+  display: grid;
+  align-items: center;
+  justify-content: space-around;
+  min-height: 150px;
+  grid-template-areas: "title pic" "added pic" "btn btn";
+}
+
+.inventory-img {
+  grid-area: pic;
+  width: 120px;
+  padding: 1rem;
+}
+@media (max-width: 465px) {
+  .inventory-img {
+    width: 100px;
+  }
+}
+@media (max-width: 400px) {
+  .inventory-img {
+    width: 90px;
+  }
+}
+@media (max-width: 365px) {
+  .inventory-img {
+    width: 75px;
+  }
+}
+
+.inventory-title {
+  overflow: hidden;
+  white-space: nowrap;
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  font-family: "VT323", monospace;
+  font-weight: 800;
+  animation: typing 5s steps(75, end);
+  grid-area: title;
+  font-family: "VT323", monospace;
+  font-size: 3rem;
+  color: var(--text_color);
+  margin-bottom: 0;
+  align-self: flex-end;
+  animation-duration: 1s;
+}
+@media (max-width: 465px) {
+  .inventory-title {
+    font-size: 2.6rem;
+  }
+}
+@media (max-width: 350px) {
+  .inventory-title {
+    font-size: 2.4rem;
+  }
+}
+
+.inventory-added, .inventory-added-dynamic {
+  grid-area: added;
+  font-family: "VT323", monospace;
+  font-size: 2.8rem;
+  text-align: center;
+  color: var(--text_color);
+  align-self: center;
+  animation: fadeIn 0.5s ease;
+  animation-delay: 1s;
+  animation-fill-mode: backwards;
+}
+@media (max-width: 465px) {
+  .inventory-added, .inventory-added-dynamic {
+    font-size: 2.6rem;
+  }
+}
+
+.inventory-dismiss {
+  grid-area: btn;
+  background-color: var(--modal_dismiss_btn);
+  border: 2px var(--modal_dismiss_btn) solid;
+  font-family: "VT323", monospace;
+  font-size: 2.4rem;
+  padding: 1.2rem;
+  margin-top: 2.4rem;
+  margin-bottom: 1rem;
+  color: var(--modal_dismiss_text_color);
+  transition: all 0.4s ease-in-out;
+}
+.inventory-dismiss:focus {
+  border: 2px var(--text_color) solid;
+  transform: scale(1.02);
+}
+
 .game-template-wrapper {
   display: flex;
   flex-direction: column;

@@ -43,11 +43,13 @@ func (e *Repository) Game(w http.ResponseWriter, r *http.Request) {
 		Title       string
 		Description string
 		Node        models.GameNode
+		TotalNodes  int
 	}
 	gnd := InitialGameData{
 		Title:       e.GC.Game.Title,
 		Description: e.GC.Game.Description,
 		Node:        e.GC.Game.Nodes[0],
+		TotalNodes:  len(e.GC.Game.Nodes),
 	}
 	render.RenderTemplate(w, "game.page.tmpl", &models.TemplateData{
 		Data: map[string]interface{}{"game": gnd},

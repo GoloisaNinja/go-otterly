@@ -4,6 +4,8 @@
 @import "./game-node-text"; // css related to the status and node text
 @import "./game-options"; // css related to the game options
 @import "./game-input-error"; // css related to the input and error sections
+@import "./game-modal"; // css related to the modal and overlay
+@import "./inventoryadd"; // css related to the interior component of the modal
 
 .game-template-wrapper {
   @include PageWrapper;
