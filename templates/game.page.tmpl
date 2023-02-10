@@ -5,6 +5,20 @@
 {{define "css"}}
     <link rel="stylesheet" href="../static/stylesheets/css/game.css"/>
 {{end}}
+{{define "meta"}}
+    {{$metaTitle := (printf "Otterly Ridiculous History | %s" .Data.game.Title)}}
+    {{$metaUrl := (printf "https://otterlyridiculoushistory.com/games/%s" .Data.game.GameID)}}
+    <meta name="description" content={{.Data.game.Description}} />
+    <meta property="og:title" content={{$metaTitle}} />
+    <meta property="og:description" content={{.Data.game.Description}} />
+    <meta property="og:image" content="../static/images/ohHai.png" />
+    <meta property="og:url" content={{$metaUrl}} />
+    <meta property="og:type" content="website" />
+    <meta property="twitter:card" content="../static/images/ohHai.png" />
+    <meta property="twitter:title" content={{.Data.game.Title}} />
+    <meta property="twitter:description" content={{.Data.game.Description}} />
+    <meta property="twitter:image" content="../static/images/ohHai.png" />
+{{end}}
 {{define "content"}}
     <div class="game-template-wrapper">
         {{block "game-loading" .}}

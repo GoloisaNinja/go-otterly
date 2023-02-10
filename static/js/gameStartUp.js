@@ -1,5 +1,5 @@
 import {CheckMenuDropDowns, ToggleMenuShow, Typewriter, ThemeToggle, InventoryModalDismiss} from "./utils.js";
-import {BODY,GAME_AREA,MENU_BUTTONS,THEME_TOGGLE_BTN, RESET_BUTTON,GAME_OPTIONS,INVENTORY_MENU,STATUS,POINTS, MODAL_DISMISS_BUTTON} from "./gameScreenElements.js";
+import {BODY,GAME_AREA,MENU_BUTTONS,THEME_TOGGLE_BTN, RESET_BUTTON,GAME_OPTIONS,INVENTORY_MENU,STATUS,POINTS, MODAL_DISMISS_BUTTON} from "./screenElements.js";
 import {GetNodeAndAlignState} from "./gameLogic.js";
 import {ExecuteLoadingScreen} from "./loadingScreen.js";
 

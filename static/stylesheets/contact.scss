@@ -1,0 +1,61 @@
+@import "./mixins";
+
+.contact-page-wrapper {
+  @include OverridePageWrapper;
+}
+.contact-hero-wrapper {
+  @include HeroWrapper;
+}
+.contact-hero-header {
+  @include HeroText;
+}
+.contact-hero-info {
+  @include HeroSubText;
+}
+.contact-form-wrapper {
+  display: flex;
+  flex-direction: column;
+  max-width: 750px;
+  > p {
+    font-size: 1.4rem;
+    color: #fff;
+    margin-bottom: 1rem;
+  }
+}
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  > label {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--LIGHT_PURPLE);
+  }
+  > input, textarea {
+    border: 2px solid #eee;
+    border-radius: 3px;
+    background-color: #eee;
+    font-size: 1.8rem;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    &:focus {
+      border: 2px solid var(--LIGHT_PURPLE)
+    }
+  }
+  > p {
+    align-self: flex-end;
+    font-size: 1.8rem;
+    color: var(--LIGHT_PURPLE);
+    margin-bottom: 3rem;
+  }
+  > button {
+    opacity: .5;
+    cursor: not-allowed;
+    pointer-events: none;
+    &.isActive {
+      opacity: 1;
+      cursor: pointer;
+      pointer-events: all;
+    }
+  }
+}

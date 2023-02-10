@@ -1,4 +1,4 @@
-import {INVENTORY_MENU, POINTS, STATUS} from "./gameScreenElements.js";
+import {INVENTORY_MENU, POINTS, STATUS} from "./screenElements.js";
 
 const initialState = {
     nodeID: null,

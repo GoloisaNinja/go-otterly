@@ -1,0 +1,54 @@
+{{template "base" .}}
+{{define "title"}}Otterly Ridiculous History | Contact Page{{end}}
+{{define "css"}}
+    <link rel="stylesheet" href="../static/stylesheets/css/contact.css"/>
+{{end}}
+{{define "meta"}}
+    <meta name="description" content="Otterly Ridiculous History - The best place on the web for ridiculous text adventure games you can play in your browser!" />
+    <meta property="og:title" content="Otterly Ridiculous History | Contact Page" />
+    <meta property="og:description" content="Otterly Ridiculous History Contact Page | Text Adventure games featuring otters!" />
+    <meta property="og:image" content="../static/images/ohHai.png" />
+    <meta property="og:url" content="https://otterlyridiculoushistory.com/contact" />
+    <meta property="og:type" content="website" />
+    <meta property="twitter:card" content="../static/images/ohHai.png" />
+    <meta property="twitter:title" content="Otterly Ridiculous History Contact Page | Contact Us" />
+    <meta property="twitter:description" content="Otterly Ridiculous History About Page | Contact Us" />
+    <meta property="twitter:image" content="../static/images/ohHai.png" />
+{{end}}
+{{define "content"}}
+    <div class="contact-page-wrapper">
+        <div class="contact-hero-wrapper">
+            <h1 class="contact-hero-header">
+                <span class="purple-span">Otterly</span> Contact (able)
+            </h1>
+            <p class="contact-hero-info">idea for a text adventure? problem with a game? want to tell us how amazing we
+                are? need to borrow a phone charger? hit up the Otterly team in the form below!</p>
+        </div>
+        <div class="contact-form-wrapper">
+            <p>*all form fields required</p>
+            <form class="contact-form">
+                <label>Name</label>
+                <input/>
+                <label>Email</label>
+                <input/>
+                <p hidden><label>subject</label><input/>></p>
+                <label>Message</label>
+                <textarea id="contact-message-area" maxlength="1000" cols="30" rows="15"></textarea>
+                <p><span id="contact-message-length"></span>/1000</p>
+                <button class="btn purple">coming soon</button>
+            </form>
+        </div>
+    </div>
+{{end}}
+{{define "js"}}
+    <script type="module">
+        import {CONTACT_MESSAGE_AREA, CONTACT_MESSAGE_LENGTH} from "../static/js/screenElements.js";
+        (function() {
+            CONTACT_MESSAGE_LENGTH.innerHTML = "0"
+        })()
+        CONTACT_MESSAGE_AREA.addEventListener("input", () => {
+            let currentTextLength = CONTACT_MESSAGE_AREA.value.length
+            CONTACT_MESSAGE_LENGTH.innerHTML = currentTextLength.toString()
+        })
+    </script>
+{{end}}

@@ -1,4 +1,4 @@
-import {MENU_DROPDOWNS, BODY, GAME_WRAPPER, MODAL_OVERLAY_WRAPPER, MODAL_WRAPPER} from "./gameScreenElements.js";
+import {MENU_DROPDOWNS, BODY, GAME_WRAPPER, MODAL_OVERLAY_WRAPPER, MODAL_WRAPPER} from "./screenElements.js";
 
 export function Typewriter(str, el, speed = 125) {
     let textPosition = 0;

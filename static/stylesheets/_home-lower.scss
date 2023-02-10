@@ -19,14 +19,7 @@
   color: #ccc;
 }
 .quote-grid {
-  display: grid;
-  grid-gap: 1.5rem;
-  grid-template-columns: 1fr 1fr 1fr;
-  margin: 2rem 0;
-  @media (max-width: 500px) {
-    grid-template-columns: 1fr;
-    grid-gap: 3.5rem;
-  }
+  @include QuoteGrid;
 }
 .quote {
   @include Quote;

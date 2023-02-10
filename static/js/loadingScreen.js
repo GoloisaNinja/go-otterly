@@ -1,5 +1,5 @@
 import { ReturnLoadingTexts } from './utils.js'
-import {LOADING_SCREEN, LOADING_TEXT_WRAPPER, GAME_WRAPPER} from "./gameScreenElements.js";
+import {LOADING_SCREEN, LOADING_TEXT_WRAPPER, GAME_WRAPPER} from "./screenElements.js";
 
 export function ExecuteLoadingScreen(gameTitle) {
     const lt = ReturnLoadingTexts(gameTitle)

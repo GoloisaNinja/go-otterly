@@ -25,6 +25,33 @@
   line-height: 1;
   width: 100%;
 }
+@mixin WavingOtter {
+  width: 20rem;
+  margin-right: 1.2rem;
+  @media (min-width: 400px) {
+    width: 25rem;
+  }
+  @media (min-width: 850px) {
+    width: 30rem;
+  }
+}
+@mixin WavingText {
+  background: #fff;
+  border-radius: 3rem;
+  align-self: flex-start;
+  margin-top: 2.5rem;
+  padding: 2rem;
+  font-family: 'VT323', monospace;
+  font-size: 3rem;
+  font-weight: 600;
+  color: #000000;
+  margin-left: -6rem;
+  min-width: 135px;
+  text-align: center;
+  @media (max-width: 445px) {
+    font-size: 2.6rem;
+  }
+}
 @mixin HeroText {
   font-size: 6rem;
   padding-top: 3rem;
@@ -61,6 +88,16 @@
   font-weight: 500;
   color: white;
   line-height: 1.2;
+}
+@mixin QuoteGrid {
+  display: grid;
+  grid-gap: 1.5rem;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin: 2rem 0;
+  @media (max-width: 500px) {
+    grid-template-columns: 1fr;
+    grid-gap: 3.5rem;
+  }
 }
 @mixin Quote {
   font-size: 1.6rem;

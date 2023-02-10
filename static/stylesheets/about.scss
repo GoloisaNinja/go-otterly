@@ -1,0 +1,7 @@
+@import './mixins';
+@import "./about-upper";
+@import "./about-lower";
+
+.about-page-wrapper {
+  @include OverridePageWrapper
+}

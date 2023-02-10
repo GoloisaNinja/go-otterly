@@ -1,0 +1,33 @@
+{{template "base" .}}
+{{define "title"}}Otterly Ridiculous History | ABout Page{{end}}
+{{define "css"}}
+    <link rel="stylesheet" href="../static/stylesheets/css/about.css" />
+{{end}}
+{{define "meta"}}
+    <meta name="description" content="Otterly Ridiculous History - The best place on the web for ridiculous text adventure games you can play in your browser!" />
+    <meta property="og:title" content="Otterly Ridiculous History | About Page" />
+    <meta property="og:description" content="Otterly Ridiculous History Games Page | Text Adventure games featuring otters!" />
+    <meta property="og:image" content="../static/images/ohHai.png" />
+    <meta property="og:url" content="https://otterlyridiculoushistory.com/about" />
+    <meta property="og:type" content="website" />
+    <meta property="twitter:card" content="../static/images/ohHai.png" />
+    <meta property="twitter:title" content="Otterly Ridiculous History About Page | Learn All About Otterly Ridiculous History Text Adventures!" />
+    <meta property="twitter:description" content="Otterly Ridiculous History About Page | Learn All About Otterly Ridiculous History Text Adventures!" />
+    <meta property="twitter:image" content="../static/images/ohHai.png" />
+{{end}}
+{{define "content"}}
+    <div class="about-page-wrapper">
+        {{block "about-upper" .}}
+        {{end}}
+        {{block "about-lower" .}}
+        {{end}}
+    </div>
+{{end}}
+{{define "js"}}
+    <script type="module">
+        import {ABOUT_CONTACT_BUTTON} from "../static/js/screenElements.js";
+        ABOUT_CONTACT_BUTTON.addEventListener("click", () => {
+            window.location.href = "/contact"
+        })
+    </script>
+{{end}}

@@ -36,6 +36,13 @@ func (e *Repository) Home(w http.ResponseWriter, r *http.Request) {
 	render.RenderTemplate(w, "home.page.tmpl", &models.TemplateData{})
 }
 
+func (e *Repository) About(w http.ResponseWriter, r *http.Request) {
+	render.RenderTemplate(w, "about.page.tmpl", &models.TemplateData{})
+}
+func (e *Repository) Contact(w http.ResponseWriter, r *http.Request) {
+	render.RenderTemplate(w, "contact.page.tmpl", &models.TemplateData{})
+}
+
 func (e *Repository) Game(w http.ResponseWriter, r *http.Request) {
 	params := mux.Vars(r)
 	gameId := params["id"]
@@ -46,12 +53,14 @@ func (e *Repository) Game(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	type InitialGameData struct {
+		GameID      string
 		Title       string
 		Description string
 		Node        models.GameNode
 		TotalNodes  int
 	}
 	gnd := InitialGameData{
+		GameID:      e.GC.Game.ID,
 		Title:       e.GC.Game.Title,
 		Description: e.GC.Game.Description,
 		Node:        e.GC.Game.Nodes[0],

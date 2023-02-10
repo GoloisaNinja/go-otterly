@@ -23,10 +23,18 @@
 - [x] add the dreaded coded nodes logic!
 - [x] game theme switcher
 - [x] in-game reset button
+- [x] bad request go struct response from api
+- [x] go path prefex catch all route
+- [x] go notfound template for 404 addresses
+- [x] go game data struct updates for FE meta tags
+- [x] per page meta details
+- [x] dynamic game template meta from backend for all games
+- [x] fix game node structs for status and inventory checks
 - [ ] One Way or the Otter full game added 
-- [ ] About Page
-- [ ] Contact Page that perhaps works
-- [ ] Enhanced footer with social links to my socials
+- [x] About Page with new assets
+- [x] Contact Page Routing
+- [ ] Contact Page Go Backend handling
+- [x] Enhanced footer with social links to my socials
 - [ ] Attribution page for cool pixel art artists
 - [ ] Get recognized and, by proxy, rich and stuff
 - [ ] Get Lowie to finally do some marketing

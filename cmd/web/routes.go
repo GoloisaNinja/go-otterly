@@ -11,6 +11,8 @@ func routes(app *config.AppConfig) http.Handler {
 	r := mux.NewRouter()
 	// routes
 	r.HandleFunc("/", handlers.Repo.Home)
+	r.HandleFunc("/about", handlers.Repo.About)
+	r.HandleFunc("/contact", handlers.Repo.Contact)
 	r.HandleFunc("/games", handlers.Repo.Games)
 	r.HandleFunc("/games/{id}", handlers.Repo.Game)
 	// api routes

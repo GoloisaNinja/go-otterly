@@ -1,0 +1,67 @@
+@import "./mixins";
+
+.about-hero-wrapper {
+  @include HeroWrapper;
+}
+.about-hero-text {
+  @include HeroText;
+}
+.about-hero-subtext {
+  @include HeroSubText;
+  color: #ccc;
+}
+.about-upper-content {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  > div:last-child {
+    margin-top: 7.5rem;
+  }
+}
+
+.about-infobox-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  margin-top: 2.5rem;
+  > h3:nth-child(3) {
+    margin-top: 3rem;
+  }
+}
+.about-overlay-text {
+  @include WavingText;
+  margin-top: 0;
+  padding: 1.6rem;
+  position: absolute;
+  top: 2%;
+  left: 55%;
+  transform: translate(-55%, -2%);
+  @media (max-width: 800px) {
+    font-size: 2.4rem;
+    padding: 1.4rem;
+  }
+  @media (max-width: 600px) {
+    padding: 1rem;
+  }
+  @media (max-width: 500px) {
+    font-size: 1.8rem;
+    padding: 1.2rem;
+    top: 0%;
+  }
+  @media (max-width: 400px) {
+    font-size: 1.6rem;
+    padding: .5rem;
+  }
+  @media (max-width: 350px) {
+    font-size: 1.2rem;
+    padding: 1rem;
+  }
+}
+.about-info-header {
+  @include InfoHeader;
+}
+.about-info {
+  @include Info;
+  color: #ccc;
+}

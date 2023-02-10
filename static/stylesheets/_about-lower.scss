@@ -1,0 +1,23 @@
+@import "./mixins";
+
+.about-lower-content {
+  display: flex;
+  flex-direction: column;
+  margin-top: 7.5rem;
+}
+.fact-grid-header {
+  @include InfoHeader;
+}
+.fact-grid {
+  @include QuoteGrid;
+}
+.fact {
+  @include Quote;
+}
+.about-contact-wrapper {
+  margin-top: 7.5rem;
+  > button:last-child {
+    margin-top: 6rem;
+    width: 30rem;
+  }
+}

@@ -3,6 +3,18 @@
 {{define "css"}}
     <link rel="stylesheet" href="../static/stylesheets/css/home.css" />
 {{end}}
+{{define "meta"}}
+    <meta name="description" content="Otterly Ridiculous History - The best place on the web for ridiculous text adventure games you can play in your browser!" />
+    <meta property="og:title" content="Otterly Ridiculous History | Text Adventure games featuring otters!" />
+    <meta property="og:description" content="Otterly Ridiculous History - The best place on the web for ridiculous text adventure games you can play in your browser!" />
+    <meta property="og:image" content="../static/images/ohHai.png" />
+    <meta property="og:url" content="https://otterlyridiculoushistory.com" />
+    <meta property="og:type" content="website" />
+    <meta property="twitter:card" content="../static/images/ohHai.png" />
+    <meta property="twitter:title" content="Otterly Ridiculous History | Text Adventure games featuring otters!" />
+    <meta property="twitter:description" content="Otterly Ridiculous History - The best place on the web for ridiculous text adventure games you can play in your browser!" />
+    <meta property="twitter:image" content="../static/images/ohHai.png" />
+{{end}}
 {{define "content"}}
    {{block "home-hero" .}}
    {{end}}
@@ -12,7 +24,7 @@
 {{define "js"}}
     <script type="module">
         import { Typewriter } from "../static/js/utils.js";
-        import {HOME_BROWSE_BUTTON,HOME_ABOUTUS_BUTTON, HOME_HERO_TEXT} from "../static/js/gameScreenElements.js";
+        import {HOME_BROWSE_BUTTON,HOME_ABOUTUS_BUTTON, HOME_HERO_TEXT} from "../static/js/screenElements.js";
         const str = "Otterly Ridiculous"
         Typewriter(str, HOME_HERO_TEXT)
         HOME_BROWSE_BUTTON.addEventListener("click", () => {

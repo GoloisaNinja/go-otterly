@@ -6,7 +6,7 @@ import {
     NODE_TEXT,
     OPTIONS_WRAPPER,
     USER_INPUT
-} from "./gameScreenElements.js";
+} from "./screenElements.js";
 import {ScrollNodeTextToTop, Typewriter} from "./utils.js";
 import {GetRandomOtterFact} from "./otterFacts.js";
 
