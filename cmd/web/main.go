@@ -7,6 +7,7 @@ import (
 	"github.com/GoloisaNinja/go-otterly/pkg/render"
 	"log"
 	"net/http"
+	"os"
 )
 
 var app config.AppConfig
@@ -14,7 +15,11 @@ var gc config.GameConfig
 
 func main() {
 
-	port := ":8000"
+	port := ":" + os.Getenv("PORT")
+	if port == ":" {
+		port = ":8000"
+	}
+
 	app.IsProduction = false
 	helpers.LoadGames(&gc)
 	tc, err := render.CreateTemplateCache()
