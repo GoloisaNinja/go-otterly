@@ -30,6 +30,8 @@ func NewHandlers(r *Repository) {
 	Repo = r
 }
 
+// Template Routes
+
 func (e *Repository) Home(w http.ResponseWriter, r *http.Request) {
 	render.RenderTemplate(w, "home.page.tmpl", &models.TemplateData{})
 }
@@ -38,7 +40,11 @@ func (e *Repository) Game(w http.ResponseWriter, r *http.Request) {
 	params := mux.Vars(r)
 	gameId := params["id"]
 	// load this game into gameconfig
-	helpers.LoadGame(e.GC, gameId)
+	goodGameId := helpers.LoadGame(e.GC, gameId)
+	if !goodGameId {
+		render.RenderTemplate(w, "notfound.page.tmpl", &models.TemplateData{})
+		return
+	}
 	type InitialGameData struct {
 		Title       string
 		Description string
@@ -85,22 +91,25 @@ func (e *Repository) Games(w http.ResponseWriter, r *http.Request) {
 	})
 }
 
+func (e *Repository) NotFound(w http.ResponseWriter, r *http.Request) {
+	render.RenderTemplate(w, "notfound.page.tmpl", &models.TemplateData{})
+}
+
 // API Routes
 
 // GetNode handler
 func (e *Repository) GetNode(w http.ResponseWriter, r *http.Request) {
 	rBody, err := io.ReadAll(r.Body)
 	if err != nil {
-		log.Fatal("request failed")
+		log.Fatal("read request failed")
 	}
-
 	var rb models.NodeReqBody
 	json.Unmarshal(rBody, &rb)
-	var n models.GameNode
-	for _, gn := range e.GC.Game.Nodes {
-		if gn.ID == rb.NextNode {
-			n = gn
-		}
+	n, err := helpers.FindRequestedNode(e.GC, rb.NextNode)
+	if err != nil {
+		en := models.EmptyGameNode
+		json.NewEncoder(w).Encode(en)
+		return
 	}
 	cn := helpers.ValidateNodeOptions(n, rb)
 	json.NewEncoder(w).Encode(cn)

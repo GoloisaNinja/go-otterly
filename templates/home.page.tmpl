@@ -1,7 +1,5 @@
 {{template "base" .}}
-{{define "title"}}
-    Otterly Ridiculous History | Home Page
-{{end}}
+{{define "title"}}Otterly Ridiculous History | Home Page{{end}}
 {{define "css"}}
     <link rel="stylesheet" href="../static/stylesheets/css/home.css" />
 {{end}}
@@ -14,9 +12,15 @@
 {{define "js"}}
     <script type="module">
         import { Typewriter } from "../static/js/utils.js";
+        import {HOME_BROWSE_BUTTON,HOME_ABOUTUS_BUTTON, HOME_HERO_TEXT} from "../static/js/gameScreenElements.js";
         const str = "Otterly Ridiculous"
-        const heroEl = document.getElementById("hero-text")
-        Typewriter(str, heroEl)
+        Typewriter(str, HOME_HERO_TEXT)
+        HOME_BROWSE_BUTTON.addEventListener("click", () => {
+            window.location.href = "/games"
+        })
+        HOME_ABOUTUS_BUTTON.addEventListener("click", () => {
+            window.location.href = "/about"
+        })
     </script>
         <script type="module">
             import {Quotes} from "../static/js/utils.js";

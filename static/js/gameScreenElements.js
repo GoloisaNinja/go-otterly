@@ -1,4 +1,7 @@
 export const BODY = document.querySelector("body")
+export const HOME_BROWSE_BUTTON = document.getElementById("home-browse-btn")
+export const HOME_ABOUTUS_BUTTON = document.getElementById("home-aboutus-btn")
+export const HOME_HERO_TEXT = document.getElementById("hero-text")
 export const LOADING_SCREEN = document.getElementById("loading-screen")
 export const LOADING_TEXT_WRAPPER = document.getElementById("ls-wrapper")
 export const GAME_WRAPPER = document.getElementById("gi-wrapper")

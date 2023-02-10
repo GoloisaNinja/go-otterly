@@ -1,6 +1,7 @@
 package helpers
 
 import (
+	"errors"
 	"github.com/GoloisaNinja/go-otterly/pkg/config"
 	"github.com/GoloisaNinja/go-otterly/pkg/games"
 	"github.com/GoloisaNinja/go-otterly/pkg/models"
@@ -18,12 +19,22 @@ func LoadGames(gc *config.GameConfig) {
 	gc.Games = append(gc.Games, gameslice...)
 }
 
-func LoadGame(gc *config.GameConfig, id string) {
+func LoadGame(gc *config.GameConfig, id string) bool {
 	for _, game := range gc.Games {
 		if game.ID == id {
 			gc.Game = game
+			return true
 		}
 	}
+	return false
+}
+func FindRequestedNode(gc *config.GameConfig, id string) (models.GameNode, error) {
+	for _, gn := range gc.Game.Nodes {
+		if gn.ID == id {
+			return gn, nil
+		}
+	}
+	return models.GameNode{}, errors.New("bad node id")
 }
 func findIndex(a []string, v string) int {
 	index := -1

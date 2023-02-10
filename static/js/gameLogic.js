@@ -75,7 +75,7 @@ function HandleAfterAction(gs) {
 export async function GetNodeAndAlignState(gs, nodeId) {
     const body = {
         nextNode: nodeId,
-        mood: gs.getStatus(),
+        status: gs.getStatus(),
         inventory: gs.getInventory()
     }
     // reset codednode state if it's in a true position

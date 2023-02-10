@@ -19,5 +19,7 @@ func routes(app *config.AppConfig) http.Handler {
 	staticFileDir := http.Dir("static")
 	staticFileHandler := http.StripPrefix("/static/", http.FileServer(staticFileDir))
 	r.PathPrefix("/static/").Handler(staticFileHandler).Methods("GET")
+	// catch all
+	r.PathPrefix("/").HandlerFunc(handlers.Repo.Home)
 	return r
 }

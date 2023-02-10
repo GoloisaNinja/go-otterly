@@ -444,6 +444,7 @@ var OneWayOrTheOtter = models.Game{
 					Text:    `Type “assistance” to offer your help`,
 					Command: "assistance",
 					Mood:    "calm",
+					HasReqs: true,
 					Requires: models.OptionReqs{
 						Mood: "short cicuit",
 					},
@@ -567,6 +568,7 @@ var OneWayOrTheOtter = models.Game{
 					Text:    `Type “inspect” to try and trace the wiring`,
 					Command: "inspect",
 					Mood:    "",
+					HasReqs: true,
 					Requires: models.OptionReqs{
 						Mood: "calm",
 					},
@@ -579,6 +581,7 @@ var OneWayOrTheOtter = models.Game{
 					Text:    `Type “bridge” to abandon comms and solve from bridge like a captain`,
 					Command: "bridge",
 					Mood:    "hello time bomb",
+					HasReqs: true,
 					Requires: models.OptionReqs{
 						Mood: "autocrat",
 					},
@@ -613,6 +616,7 @@ var OneWayOrTheOtter = models.Game{
 					Text:    `Type "wires" to use the wires from your inventory!`,
 					Command: "wires",
 					Mood:    "wired",
+					HasReqs: true,
 					Requires: models.OptionReqs{
 						Inventory: []string{"wires"},
 					},
@@ -687,6 +691,7 @@ var OneWayOrTheOtter = models.Game{
 					Text:    `Type “bash” to use the MHRL to bash the comms panel`,
 					Command: "bash",
 					Mood:    "bashy otter",
+					HasReqs: true,
 					Requires: models.OptionReqs{
 						Inventory: []string{"MHRL"},
 					},
@@ -799,6 +804,7 @@ var OneWayOrTheOtter = models.Game{
 					Text:    `Type "right" to inspect room on the right`,
 					Command: "right",
 					Mood:    "",
+					HasReqs: true,
 					Requires: models.OptionReqs{
 						Mood: "search mode",
 					},
@@ -830,6 +836,7 @@ var OneWayOrTheOtter = models.Game{
 					Text:    `Type "flashlight" to turn on the flashlight`,
 					Command: "flashlight",
 					Mood:    "",
+					HasReqs: true,
 					Requires: models.OptionReqs{
 						Inventory: []string{"flashlight"},
 					},
@@ -872,6 +879,7 @@ var OneWayOrTheOtter = models.Game{
 					Text:    `Type "desk" to search the desk with the flashlight`,
 					Command: "desk",
 					Mood:    "rummager",
+					HasReqs: true,
 					Requires: models.OptionReqs{
 						Mood: "illuminati",
 					},
@@ -1076,6 +1084,7 @@ var OneWayOrTheOtter = models.Game{
 					Text:    `Type "creds" to use your access creds to enter the bridge`,
 					Command: "creds",
 					Mood:    "i am the captain now",
+					HasReqs: true,
 					Requires: models.OptionReqs{
 						Inventory: []string{"bridge access"},
 					},
@@ -1233,6 +1242,7 @@ var OneWayOrTheOtter = models.Game{
 					Text:    `Type "credentials" to show him your creds`,
 					Command: "credentials",
 					Mood:    "picard",
+					HasReqs: true,
 					Requires: models.OptionReqs{
 						Inventory: []string{"bridge access"},
 					},
@@ -1245,6 +1255,7 @@ var OneWayOrTheOtter = models.Game{
 					Text:    `Type "old photo" to show him the photo you found`,
 					Command: "old photo",
 					Mood:    "fatal frame",
+					HasReqs: true,
 					Requires: models.OptionReqs{
 						Inventory: []string{"old photo"},
 					},
@@ -1257,6 +1268,7 @@ var OneWayOrTheOtter = models.Game{
 					Text:    `Type "ripped cloth" to show him the cloth you found`,
 					Command: "ripped cloth",
 					Mood:    "fashionista",
+					HasReqs: true,
 					Requires: models.OptionReqs{
 						Inventory: []string{"ripped cloth"},
 					},
@@ -1300,6 +1312,7 @@ var OneWayOrTheOtter = models.Game{
 					Text:    `Type "credentials" to show him your creds`,
 					Command: "credentials",
 					Mood:    "picard",
+					HasReqs: true,
 					Requires: models.OptionReqs{
 						Inventory: []string{"bridge access"},
 					},
@@ -1312,6 +1325,7 @@ var OneWayOrTheOtter = models.Game{
 					Text:    `Type "old photo" to show him the photo you found`,
 					Command: "old photo",
 					Mood:    "fatal frame",
+					HasReqs: true,
 					Requires: models.OptionReqs{
 						Inventory: []string{"old photo"},
 					},
@@ -1324,6 +1338,7 @@ var OneWayOrTheOtter = models.Game{
 					Text:    `Type "ripped cloth" to show him the cloth you found`,
 					Command: "ripped cloth",
 					Mood:    "fashionista",
+					HasReqs: true,
 					Requires: models.OptionReqs{
 						Inventory: []string{"ripped cloth"},
 					},

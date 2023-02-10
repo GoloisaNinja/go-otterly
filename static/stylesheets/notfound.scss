@@ -1,0 +1,24 @@
+@import "./mixins";
+
+.notfound-wrapper {
+  @include OverridePageWrapper;
+  justify-content: center;
+}
+.notfound-content {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+.notfound-text {
+  > svg {
+    filter: invert(53%) sepia(48%) saturate(1658%) hue-rotate(238deg) brightness(96%) contrast(106%);
+    width: 10rem;
+    height: 10rem;
+    margin-right: 2rem;
+    vertical-align: bottom;
+  }
+  font-size: 6rem;
+  line-height: 1.2;
+  color: #fff;
+  margin-bottom: 3rem;
+}
