@@ -1222,6 +1222,7 @@ var OneWayOrTheOtter = models.Game{
 					Inventory: "",
 					NextNode:  "50",
 					PlayType:  "passive",
+					DeathNode: true,
 				},
 			},
 

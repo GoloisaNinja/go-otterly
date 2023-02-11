@@ -16,8 +16,8 @@
     --BUTTON_GREEN_HOVER: #58ed13;
     --BUTTON_BLACK_HOVER: #242424;
     --BUTTON_DEFAULT_HOVER: #e6e6e6;
-    --SVG-LIGHT-FILTER: invert(98%) sepia(5%) saturate(0%) hue-rotate(71deg) brightness(114%) contrast(100%);
-    --SVG-DARK-FILTER: invert(0%) sepia(9%) saturate(7500%) hue-rotate(262deg) brightness(87%) contrast(113%);
+    --GAMEPAD-RED: #e00206;
+    --GAMEPAD-ORANGE: #ff990a;
 }
 .theme-light {
     --loading_screen_text: var(--OFF_WHITE);
@@ -38,7 +38,7 @@
     --modal_bg_color: var(--LIGHT_GRAY);
     --modal_dismiss_btn: var(--IBM_BLUE);
     --modal_dismiss_text_color: white;
-    --svg-filter: var(--SVG-LIGHT-FILTER);
+    --gamepad_color: var(--GAMEPAD-ORANGE);
 }
 .theme-dark {
     --loading_screen_text: var(--CONSOLE_GREEN);
@@ -59,7 +59,7 @@
     --modal_bg_color: var(--MAIN_GRAY);
     --modal_dismiss_btn: var(--CONSOLE_GREEN);
     --modal_dismiss_text_color: black;
-    --svg-filter: var(--SVG-DARK-FILTER);
+    --gamepad_color: var(--GAMEPAD-RED);
 }
 * {
     margin: 0;
