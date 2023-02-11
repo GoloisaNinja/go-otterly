@@ -36,6 +36,7 @@ function setNewNodeOptions(gs, arr) {
         OPTIONS_WRAPPER.append(el)
         Typewriter(opt.Text, el, 50)
     })
+    USER_INPUT.removeAttribute("disabled")
     USER_INPUT.value = ""
 }
 
@@ -89,6 +90,8 @@ export async function GetNodeAndAlignState(gs, nodeId) {
     if (nodeId === "1") {
         gs.resetState(gs.getGameTitle(), gs.getTotalNodes())
     }
+    USER_INPUT.value = "...computing input"
+    USER_INPUT.setAttribute("disabled", "true")
     const node = await axios.post("/api/gameNode", body)
     gs.setNodeID(node.data.ID)
     gs.setPoints(node.data.EarnedPoints)
