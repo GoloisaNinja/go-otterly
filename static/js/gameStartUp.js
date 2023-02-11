@@ -17,6 +17,8 @@ export function GameStartUp(gs, gameTitle, totalNodes) {
             BODY.classList.add("theme-dark")
             localStorage.setItem("game-theme", "theme-dark")
         }
+        const t = localStorage.getItem("game-theme").split("-")
+        THEME_TOGGLE_BTN.innerHTML = `${t[1]} theme`
     })()
     // Get inventory, status and points from Game State
     const inv = gs.getInventory()

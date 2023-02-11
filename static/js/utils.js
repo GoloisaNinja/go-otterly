@@ -1,4 +1,4 @@
-import {MENU_DROPDOWNS, BODY, GAME_WRAPPER, MODAL_OVERLAY_WRAPPER, MODAL_WRAPPER} from "./screenElements.js";
+import {MENU_DROPDOWNS, BODY, GAME_WRAPPER, MODAL_OVERLAY_WRAPPER, MODAL_WRAPPER, THEME_TOGGLE_BTN} from "./screenElements.js";
 
 export function Typewriter(str, el, speed = 125) {
     let textPosition = 0;
@@ -78,10 +78,12 @@ export function ThemeToggle() {
         localStorage.setItem("game-theme", "theme-light")
         BODY.classList.remove("theme-dark")
         BODY.classList.add("theme-light")
+        THEME_TOGGLE_BTN.innerHTML = "light theme"
     } else {
         localStorage.setItem("game-theme", "theme-dark")
         BODY.classList.remove("theme-light")
         BODY.classList.add("theme-dark")
+        THEME_TOGGLE_BTN.innerHTML = "dark theme"
     }
 }
 export function ScrollNodeTextToTop() {
