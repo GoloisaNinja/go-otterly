@@ -26,7 +26,7 @@
 .footer-info-inner > svg {
   width: 6.5rem;
   heigth: 6.5rem;
-  filter: invert(36%) sepia(10%) saturate(1167%) hue-rotate(332deg) brightness(92%) contrast(86%);
+  filter: invert(83%) sepia(41%) saturate(598%) hue-rotate(122deg) brightness(85%) contrast(95%);
   vertical-align: top;
 }
 @media (max-width: 400px) {
