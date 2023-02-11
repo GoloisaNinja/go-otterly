@@ -65,7 +65,8 @@
         GameStartUp(gs, gameTitle, totalNodes)
 
         async function handleInput(userCommand) {
-            const nextNode = ReturnNextNode(gs, userCommand, defaultOptions)
+            const cleanUC = userCommand.toLowerCase().trim()
+            const nextNode = ReturnNextNode(gs, cleanUC, defaultOptions)
             if (nextNode !== null) {
                 await GetNodeAndAlignState(gs, nextNode)
             }

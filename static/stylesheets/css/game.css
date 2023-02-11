@@ -51,6 +51,7 @@
 }
 .menu-wrapper > svg {
   filter: var(--svg-filter);
+  -webkit-filter: var(--svg-filter);
   margin-left: 0.5rem;
   margin-right: 1rem;
   width: 3rem;

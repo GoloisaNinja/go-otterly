@@ -18,7 +18,10 @@ function showInventoryModal(inv) {
 
 function setNewNodeText(str) {
     NODE_TEXT.innerHTML = str
-    ScrollNodeTextToTop()
+    setTimeout(() => {
+        ScrollNodeTextToTop()
+    }, 300)
+
 }
 
 function setNewNodeOptions(gs, arr) {
