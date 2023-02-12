@@ -1,5 +1,8 @@
 @import './_mixins.scss';
+
 @include FadeIn;
+@include Spin;
+
 .hero-wrapper {
   @include BasicDivWrapper;
   margin-top: 7.5rem;
@@ -148,4 +151,13 @@
   > button:last-child {
     margin-left: 3rem;
   }
+}
+.btn.loading .btn-text {
+  visibility: hidden;
+  opacity: 0;
+}
+.btn.loading::after {
+      @include ButtonLoading;
+      animation: spin 1s ease-in-out infinite;
+      -webkit-animation: spin 1s ease-in-out infinite;
 }

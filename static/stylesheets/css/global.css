@@ -80,6 +80,7 @@ button {
     background: none;
 }
 .btn {
+    position: relative;
     font-size: 1.6rem;
     font-weight: 500;
     background-color: var(--BUTTON_PURPLE);

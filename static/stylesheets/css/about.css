@@ -122,6 +122,11 @@
   color: #ccc;
 }
 
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
 .about-lower-content {
   display: flex;
   flex-direction: column;
@@ -182,6 +187,29 @@
 .about-contact-wrapper > button:last-child {
   margin-top: 6rem;
   width: 30rem;
+}
+
+.btn.loading .btn-text {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.btn.loading::after {
+  content: "";
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  border: 5px solid rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+  border-top-color: var(--LIGHT_PURPLE);
+  z-index: 1010;
+  animation: spin 1s ease-in-out infinite;
+  -webkit-animation: spin 1s ease-in-out infinite;
 }
 
 .about-page-wrapper {

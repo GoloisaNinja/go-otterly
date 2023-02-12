@@ -28,9 +28,11 @@
         const str = "Otterly Ridiculous"
         Typewriter(str, HOME_HERO_TEXT)
         HOME_BROWSE_BUTTON.addEventListener("click", () => {
+            HOME_BROWSE_BUTTON.classList.add("loading")
             window.location.href = "/games"
         })
         HOME_ABOUTUS_BUTTON.addEventListener("click", () => {
+            HOME_ABOUTUS_BUTTON.classList.add("loading")
             window.location.href = "/about"
         })
     </script>

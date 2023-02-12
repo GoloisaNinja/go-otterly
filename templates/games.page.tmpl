@@ -27,12 +27,15 @@
                 {{$tid := (printf "%s%v" "t" $game.ID)}}
                 {{$glid := (printf "%s%v" "gl" $game.ID)}}
                 {{$url := (printf "%s%v" "/games/" $game.ID)}}
+                {{$sid := (printf "%s%v" "spinner" $game.ID)}}
                 <div id={{$gcid}} class="game-card-wrapper">
-                    <img class="game-card-img" src={{$game.Image}} />
+                    <img alt="coming soon" class="game-card-img" src={{$game.Image}} />
                     <div class="game-text-wrapper">
                         <h3 id={{$tid}} class="game-title">{{$game.Title}}</h3>
                         <p class="game-description">{{$game.Description}}</p>
                         <a id={{$glid}} class="game-link" href={{$url}}></a>
+                        <div class="spinner-wrapper" id={{$sid}}></div>
+                        <div class="spinner-overlay" id={{$sid}}></div>
                     </div>
                 </div>
             {{end}}
@@ -40,12 +43,15 @@
     </div>
 {{end}}
 {{define "js"}}
-<script>
+<script type="module">
+    import {SetSpinnerAsActive} from "../static/js/utils.js";
+
     const games = {{.Data.games}}
     for (let game of games) {
         let gcid = "gc" + game.ID
         let tid = "t" + game.ID
         let glid = "gl" + game.ID
+        let sid = "spinner" + game.ID
         let gc = document.getElementById(gcid)
         let t = document.getElementById(tid)
         let gl = document.getElementById(glid)
@@ -53,6 +59,9 @@
             gc.style.opacity = 1
             gc.style.cursor = "pointer"
             gl.style.pointerEvents = "all"
+            gc.addEventListener("click", () => {
+                SetSpinnerAsActive(game.ID)
+            })
         }
         t.style.color = game.TitleColor
     }

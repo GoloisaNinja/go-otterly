@@ -134,6 +134,52 @@
   font-weight: 800;
   animation: typing 5s steps(75, end);
 }
+@mixin Spinner {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -25px;
+  margin-left: -25px;
+  width: 50px;
+  height: 50px;
+  border: 5px solid rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+  border-top-color: var(--LIGHT_PURPLE);
+  z-index: 1010;
+  &.isActive {
+    display: block
+  }
+}
+@mixin SpinnerOverlay {
+  display: none;
+  z-index: 1000;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #0a0a0a;
+  opacity: 90%;
+  &.isActive {
+    display: inline-block;
+  }
+}
+@mixin ButtonLoading {
+  content: "";
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  border: 5px solid rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+  border-top-color: var(--LIGHT_PURPLE);
+  z-index: 1010;
+}
 // animations
 @mixin FadeIn {
   @keyframes fadeIn {
@@ -145,5 +191,10 @@
   @keyframes typing {
     from { width: 0 }
     to { width: 100% }
+  }
+}
+@mixin Spin {
+  @keyframes spin {
+    100% {transform: rotate(360deg)}
   }
 }

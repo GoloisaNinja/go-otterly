@@ -1,5 +1,8 @@
 @import './_mixins';
+
 @include FadeIn;
+@include Spin;
+
 .games-wrapper {
   @include OverridePageWrapper;
 }
@@ -66,4 +69,13 @@
   width: 100%;
   height: 100%;
   pointer-events: none;
+}
+
+.spinner-wrapper {
+  @include Spinner;
+  animation: spin 1s ease-in-out infinite;
+  -webkit-animation: spin 1s ease-in-out infinite;
+}
+.spinner-overlay {
+  @include SpinnerOverlay;
 }

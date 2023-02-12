@@ -27,6 +27,7 @@
     <script type="module">
         import {ABOUT_CONTACT_BUTTON} from "../static/js/screenElements.js";
         ABOUT_CONTACT_BUTTON.addEventListener("click", () => {
+            ABOUT_CONTACT_BUTTON.classList.add("loading")
             window.location.href = "/contact"
         })
     </script>

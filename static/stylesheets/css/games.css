@@ -6,6 +6,11 @@
     opacity: 1;
   }
 }
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
 .games-wrapper {
   display: flex;
   flex-direction: column;
@@ -118,6 +123,41 @@
   width: 100%;
   height: 100%;
   pointer-events: none;
+}
+
+.spinner-wrapper {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -25px;
+  margin-left: -25px;
+  width: 50px;
+  height: 50px;
+  border: 5px solid rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+  border-top-color: var(--LIGHT_PURPLE);
+  z-index: 1010;
+  animation: spin 1s ease-in-out infinite;
+  -webkit-animation: spin 1s ease-in-out infinite;
+}
+.spinner-wrapper.isActive {
+  display: block;
+}
+
+.spinner-overlay {
+  display: none;
+  z-index: 1000;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #0a0a0a;
+  opacity: 90%;
+}
+.spinner-overlay.isActive {
+  display: inline-block;
 }
 
 /*# sourceMappingURL=games.css.map */

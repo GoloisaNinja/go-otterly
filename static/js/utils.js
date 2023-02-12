@@ -95,3 +95,7 @@ export function InventoryModalDismiss() {
     MODAL_WRAPPER.classList.remove("show")
     MODAL_OVERLAY_WRAPPER.classList.remove("show")
 }
+export function SetSpinnerAsActive(id) {
+    let spinnerEls = document.querySelectorAll(`#spinner${id}`)
+    spinnerEls.forEach((el) => el.classList.add('isActive'))
+}

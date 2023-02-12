@@ -1,4 +1,5 @@
 @import "./mixins";
+@include Spin;
 
 .about-lower-content {
   display: flex;
@@ -20,4 +21,13 @@
     margin-top: 6rem;
     width: 30rem;
   }
+}
+.btn.loading .btn-text {
+  visibility: hidden;
+  opacity: 0;
+}
+.btn.loading::after {
+  @include ButtonLoading;
+  animation: spin 1s ease-in-out infinite;
+  -webkit-animation: spin 1s ease-in-out infinite;
 }
