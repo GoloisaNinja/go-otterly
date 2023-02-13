@@ -83,6 +83,7 @@
   cursor: not-allowed;
   opacity: 0.3;
   position: relative;
+  background-color: black;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
   animation: fadeIn 1.8s ease-in-out;
   transition: all 0.4s ease-in-out;
@@ -104,9 +105,14 @@
   flex: 1;
 }
 
+.game-link {
+  text-decoration: none;
+  pointer-events: none;
+  color: #fff;
+}
+
 .game-title {
   font-size: 2.4rem;
-  color: #fff;
 }
 
 .game-description {
@@ -114,15 +120,6 @@
   font-size: 1.6rem;
   line-height: 1;
   color: #eee;
-}
-
-.game-link {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
 }
 
 .spinner-wrapper {

@@ -21,7 +21,7 @@
 
 .hero-outer-wrapper {
   padding: 3rem 0 5rem 0;
-  line-height: 1;
+  line-height: 0.75;
   width: 100%;
 }
 
@@ -65,7 +65,7 @@
 
 .hero-sub-text {
   font-family: "Caveat", cursive;
-  font-size: 5.5rem;
+  font-size: 6.2rem;
   color: #fff;
   text-shadow: 0 0 5px #fff, 0 0 10px #d84dff, 0 0 15px #d84dff, 0 0 20px #d84dff, 0 0 25px #d84dff, 0 0 35px #d84dff, 0 0 40px #d84dff;
   animation-name: fadeIn;
@@ -75,7 +75,7 @@
 }
 @media (min-width: 1000px) {
   .hero-sub-text {
-    font-size: 7rem;
+    font-size: 8rem;
   }
 }
 

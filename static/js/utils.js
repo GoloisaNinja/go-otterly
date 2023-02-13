@@ -15,15 +15,15 @@ export function Typewriter(str, el, speed = 125) {
 }
 
 export const Quotes = [
-    '"Otterly has improved my day immensly. I know so much less, about so much more!" - Barnaby, UK',
-    `"The great thing about Otterly is that there is so little that's great about it." - Lowie, CA`,
+    `"Otterly has improved my day immensly. No matter what, at least I know I didn't create this trash!" - Barnaby, UK`,
+    `"The great thing about Otterly is that there is so little that's great about it!" - Lowie, CA`,
     `"If there's one thing, I wish I had less of, it's definitely Otterly, but in a good way." - Ash, LV426`,
-    '"Sometimes you just need a good text adventure to put your own problems in perspective!" - Martin, MA',
-    '"Playing Otterly games has made me realize that I have far fewer issues than the people that made this." - Lou, QLD',
-    `"I wasn't sure about Otterly. Then I played a game. Now I'm sure. It's just so bad." - Marc, NY`,
-    `"It's called Otterly Ridiculous History. There's otters. There's ridiculous. There's almost no history." - Geralt, Rivia`,
-    '"Otterly is like an ice cream sundae for the soul, with candy toppings, making your soul extra tasty." - Willy, KY',
-    `"I like to relax with a good text adventure game. Otterly is not relaxing. Or good." - Samus, Brinstar`,
+    `"Sometimes you just need a good text adventure. After visiting Otterly, I'm still searching." - Martin, MA`,
+    `"Playing Otterly games is a bit like meeting that new friend that kinda scares you with their crazy." - Lou, QLD`,
+    `"I wasn't sure about Otterly. Then I played a game. Now I'm sure. It's just as I thought. Trash." - Marc, NY`,
+    `"It's called Otterly Ridiculous Games. There's otters. There's ridiculous. Games is a stretch." - Geralt, Rivia`,
+    '"Otterly is like an ice cream sundae for the soul, with candy toppings, so your soul is like, extra tasty." - Willy, KY',
+    `"I like to relax with a good text adventure game. Otterly is not relaxing. Or good. There is text." - Samus, Brinstar`,
 ]
 
 export function ReturnLoadingTexts(gameTitle) {
@@ -95,7 +95,8 @@ export function InventoryModalDismiss() {
     MODAL_WRAPPER.classList.remove("show")
     MODAL_OVERLAY_WRAPPER.classList.remove("show")
 }
-export function SetSpinnerAsActive(id) {
+export function HandleGameCardClick(element, id) {
     let spinnerEls = document.querySelectorAll(`#spinner${id}`)
     spinnerEls.forEach((el) => el.classList.add('isActive'))
+    element.click()
 }

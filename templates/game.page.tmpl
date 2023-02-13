@@ -7,8 +7,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 {{end}}
 {{define "meta"}}
-    {{$metaTitle := (printf "Otterly Ridiculous History | %s" .Data.game.Title)}}
-    {{$metaUrl := (printf "https://otterlyridiculoushistory.com/games/%s" .Data.game.GameID)}}
+    {{$metaTitle := (printf "Otterly Ridiculous Games | %s" .Data.game.Title)}}
+    {{$metaUrl := (printf "https://otterly.games/games/%s" .Data.game.GameID)}}
     <meta name="description" content={{.Data.game.Description}} />
     <meta property="og:title" content={{$metaTitle}} />
     <meta property="og:description" content={{.Data.game.Description}} />
@@ -40,7 +40,7 @@
                     </div>
                     <div class="input-wrapper">
                         <span class="terminal-span">command: </span>
-                        <input class="user-input" id="user-input"/>
+                        <input class="user-input" id="user-input" />
                     </div>
                     <p class="error">Error@Console ~ % <span id="error-message">null</span></p>
                 </div>

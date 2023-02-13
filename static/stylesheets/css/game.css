@@ -243,6 +243,11 @@
   padding-bottom: 0.2rem;
   flex: 1;
 }
+.user-input:disabled {
+  background: var(--input_highlight);
+  color: var(--input_text_color);
+  opacity: 1;
+}
 
 .error, #error-message {
   font-family: "VT323", monospace;

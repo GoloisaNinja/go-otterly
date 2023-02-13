@@ -34,6 +34,11 @@
   padding-left: .2rem;
   padding-bottom: .2rem;
   flex: 1;
+  &:disabled {
+    background: var(--input_highlight);
+    color: var(--input_text_color);
+    opacity: 1;
+  }
 }
 .error, #error-message {
   font-family: 'VT323', monospace;

@@ -4,39 +4,39 @@
     <link rel="stylesheet" href="../static/stylesheets/css/games.css" />
 {{end}}
 {{define "meta"}}
-    <meta name="description" content="Otterly Ridiculous History - The best place on the web for ridiculous text adventure games you can play in your browser!" />
-    <meta property="og:title" content="Otterly Ridiculous History | Games Page" />
-    <meta property="og:description" content="Otterly Ridiculous History Games Page | Text Adventure games featuring otters!" />
+    <meta name="description" content="Otterly Ridiculous Games - The best place on the web for ridiculous text adventure games you can play in your browser!" />
+    <meta property="og:title" content="Otterly Ridiculous Games | Games Page" />
+    <meta property="og:description" content="Otterly Ridiculous Games Page | Text Adventure games featuring otters!" />
     <meta property="og:image" content="../static/images/ohHai.png" />
-    <meta property="og:url" content="https://otterlyridiculoushistory.com/games" />
+    <meta property="og:url" content="https://otterly.games/games" />
     <meta property="og:type" content="website" />
     <meta property="twitter:card" content="../static/images/ohHai.png" />
-    <meta property="twitter:title" content="Otterly Ridiculous History Games Page | Text Adventure games featuring otters!" />
-    <meta property="twitter:description" content="Otterly Ridiculous History Games Page | Text Adventure games featuring otters!" />
+    <meta property="twitter:title" content="Otterly Ridiculous Games Page | Text Adventure games featuring otters!" />
+    <meta property="twitter:description" content="Otterly Ridiculous Games Page | Text Adventure games featuring otters!" />
     <meta property="twitter:image" content="../static/images/ohHai.png" />
 {{end}}
 {{define "content"}}
     <div class="games-wrapper">
         <div class="hero-wrapper">
             <h1 class="hero-text"><span class="purple-span">Otterly</span> Games Web Archive</h1>
-            <p class="hero-sub-text">browse our collection of retro text adventure games. sit back. chill. it's about to get otterly amazing in up in here.</p>
+            <p class="hero-sub-text">browse our collection of retro style text adventure games. sit back. chill. it's about to get otterly amazing in up in here.</p>
         </div>
         <div class="games-grid">
             {{range $game := .Data.games}}
                 {{$gcid := (printf "%s%v" "gc" $game.ID)}}
-                {{$tid := (printf "%s%v" "t" $game.ID)}}
                 {{$glid := (printf "%s%v" "gl" $game.ID)}}
                 {{$url := (printf "%s%v" "/games/" $game.ID)}}
                 {{$sid := (printf "%s%v" "spinner" $game.ID)}}
                 <div id={{$gcid}} class="game-card-wrapper">
                     <img alt="coming soon" class="game-card-img" src={{$game.Image}} />
                     <div class="game-text-wrapper">
-                        <h3 id={{$tid}} class="game-title">{{$game.Title}}</h3>
+                        <h3 class="game-title">
+                            <a id={{$glid}} class="game-link" href={{$url}}>{{$game.Title}}</a>
+                        </h3>
                         <p class="game-description">{{$game.Description}}</p>
-                        <a id={{$glid}} class="game-link" href={{$url}}></a>
-                        <div class="spinner-wrapper" id={{$sid}}></div>
-                        <div class="spinner-overlay" id={{$sid}}></div>
                     </div>
+                    <div class="spinner-wrapper" id={{$sid}}></div>
+                    <div class="spinner-overlay" id={{$sid}}></div>
                 </div>
             {{end}}
         </div>
@@ -44,26 +44,22 @@
 {{end}}
 {{define "js"}}
 <script type="module">
-    import {SetSpinnerAsActive} from "../static/js/utils.js";
+    import {HandleGameCardClick} from "../static/js/utils.js";
 
     const games = {{.Data.games}}
     for (let game of games) {
         let gcid = "gc" + game.ID
-        let tid = "t" + game.ID
         let glid = "gl" + game.ID
-        let sid = "spinner" + game.ID
         let gc = document.getElementById(gcid)
-        let t = document.getElementById(tid)
         let gl = document.getElementById(glid)
         if (game.IsAvailable) {
             gc.style.opacity = 1
             gc.style.cursor = "pointer"
-            gl.style.pointerEvents = "all"
             gc.addEventListener("click", () => {
-                SetSpinnerAsActive(game.ID)
+                HandleGameCardClick(gl, game.ID)
             })
         }
-        t.style.color = game.TitleColor
+        gl.style.color = game.TitleColor
     }
 </script>
 {{end}}
