@@ -1,10 +1,12 @@
-# Otterly Ridiculous History GOLANG edition!
+# Otterly Ridiculous Games GOLANG edition!
+ Because building ORG once in Typescript wasn't enough - I've decided to build it - again - in GO!
 
-#### Because building ORH once in Typescript wasn't enough - I've decided to build it - again - in GO!
+[Check us out!](https://otterly.games)
 
-## Otterly Ridiculous History is a web application that allows you play fun text adventure games featuring otters as the protagonists! The game interface has a terminal/retro styling, and we have cool pixel art throughout the site!
+### Otterly Ridiculous Games is a web application that allows you play fun text adventure games featuring otters as the protagonists! The game interface has a terminal/retro styling, and we have cool pixel art throughout the site!
 
 ### New Features! 
+- New Site Branding under Otterly Ridiculous Games (formerly Otterly Ridiculous History)
 - FULL SSR with enhanced SEO!
 - A contact form that likely wont work because I'll forget to handle via AWS
 - Absolutely NO new styling!
