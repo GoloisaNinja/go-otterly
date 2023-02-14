@@ -2,10 +2,13 @@ package handlers
 
 import (
 	"encoding/json"
+	"fmt"
 	"github.com/GoloisaNinja/go-otterly/pkg/config"
 	"github.com/GoloisaNinja/go-otterly/pkg/helpers"
 	"github.com/GoloisaNinja/go-otterly/pkg/models"
 	"github.com/GoloisaNinja/go-otterly/pkg/render"
+	"github.com/aws/aws-sdk-go/aws"
+	"github.com/aws/aws-sdk-go/aws/session"
 	"github.com/gorilla/mux"
 	"io"
 	"log"
@@ -100,8 +103,11 @@ func (e *Repository) Games(w http.ResponseWriter, r *http.Request) {
 	})
 }
 
-func (e *Repository) NotFound(w http.ResponseWriter, r *http.Request) {
-	render.RenderTemplate(w, "notfound.page.tmpl", &models.TemplateData{})
+func ThankYou(w http.ResponseWriter, r *http.Request) {
+	render.RenderTemplate(w, "thankyou.page.tmpl", &models.TemplateData{})
+}
+func SubmissionError(w http.ResponseWriter, r *http.Request) {
+	render.RenderTemplate(w, "suberror.page.tmpl", &models.TemplateData{})
 }
 
 // API Routes
@@ -122,4 +128,58 @@ func (e *Repository) GetNode(w http.ResponseWriter, r *http.Request) {
 	}
 	cn := helpers.ValidateNodeOptions(n, rb)
 	json.NewEncoder(w).Encode(cn)
+}
+
+// HandleContactSubmission handler which will process contact requests from the client
+func HandleContactSubmission(w http.ResponseWriter, r *http.Request) {
+	rBody, err := io.ReadAll(r.Body)
+	if err != nil {
+		log.Fatal("read request failed")
+	}
+	type ContactFormData struct {
+		Name    string `json:"name"`
+		Email   string `json:"email"`
+		Subject string `json:"subject"`
+		Message string `json:"message"`
+	}
+	var cd ContactFormData
+	json.Unmarshal(rBody, &cd)
+	if cd.Subject != "" {
+		// means a bot submitted our form from the client - do nothing
+		// send fake 200 resp
+		var fr models.StandardResponse
+		fr.Build(200, "ok", "no data")
+		json.NewEncoder(w).Encode(fr)
+		return
+	}
+	var sessErr models.StandardResponse
+	var sendErr models.StandardResponse
+	var emailOk models.StandardResponse
+	// create SendEmail arguments
+	emailText := cd.Message
+	subject := "Contact Request From Otterly"
+	sender := cd.Email
+	toAddresses := []*string{
+		aws.String("jonathan.collins@live.com"),
+	}
+	sess, err := session.NewSessionWithOptions(session.Options{
+		Profile: "default",
+		Config: aws.Config{
+			Region: aws.String("us-east-1"),
+		},
+	})
+	if err != nil {
+		sessErr.Build(500, "failed to create aws session", "no data")
+		json.NewEncoder(w).Encode(sessErr)
+		return
+	}
+	err = helpers.SendEmail(sess, toAddresses, emailText, sender, subject)
+	if err != nil {
+		fmt.Println(err)
+		sendErr.Build(500, "good session - but email send error", "no data")
+		json.NewEncoder(w).Encode(sendErr)
+		return
+	}
+	emailOk.Build(200, "email sent successfully", "no data")
+	json.NewEncoder(w).Encode(emailOk)
 }

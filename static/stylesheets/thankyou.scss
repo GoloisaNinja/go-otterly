@@ -1,0 +1,25 @@
+@import "./mixins";
+@include Spin;
+
+.thankyou-wrapper {
+  @include OverridePageWrapper;
+  justify-content: center;
+}
+.thankyou-content {
+  @include HeroWrapper;
+}
+.thankyou-text {
+  @include HeroText;
+}
+.thankyou-subtext {
+  @include HeroSubText;
+}
+.btn.loading .btn-text {
+  visibility: hidden;
+  opacity: 0;
+}
+.btn.loading::after {
+  @include ButtonLoading;
+  animation: spin 1s ease-in-out infinite;
+  -webkit-animation: spin 1s ease-in-out infinite;
+}

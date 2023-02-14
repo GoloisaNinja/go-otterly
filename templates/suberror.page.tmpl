@@ -1,0 +1,44 @@
+{{template "base" .}}
+{{define "title"}}Otterly Ridiculous Games | Error Page{{end}}
+{{define "css"}}
+    <link rel="stylesheet" href="../static/stylesheets/css/suberror.css" />
+{{end}}
+{{define "meta"}}
+    <meta name="description" content="Otterly Ridiculous Games - The best place on the web for ridiculous text adventure games you can play in your browser!" />
+    <meta property="og:title" content="Otterly Ridiculous Games | Error Page" />
+    <meta property="og:description" content="Otterly Ridiculous Games Error Page | Something went wrong with your form submission!" />
+    <meta property="og:image" content="../static/images/ohHai.png" />
+    <meta property="og:url" content="https://otterly.games/submission-error" />
+    <meta property="og:type" content="website" />
+    <meta property="twitter:card" content="../static/images/ohHai.png" />
+    <meta property="twitter:title" content="Otterly Ridiculous Games Error Page | Something went wrong with your form submission!" />
+    <meta property="twitter:description" content="Otterly Ridiculous Games Error Page | Something went wrong with your form submission!" />
+    <meta property="twitter:image" content="../static/images/ohHai.png" />
+{{end}}
+{{define "content"}}
+    <div class="error-wrapper">
+        <div class="error-content">
+            <h1 class="error-text">An <span class="purple-span">Otter</span> Disaster!</h1>
+            <p class="error-subtext">
+                Your form submission is could not be completed! This is awful! We suspect a nefarious
+                villain could be behind this! We will send all available otters to the scene and hopefully
+                if you come back later and try your submission again, things will go smoother. Please accept
+                our apologies!
+            </p>
+        </div>
+        <div class="error-btn-wrapper">
+            <button id="error-btn" class="btn purple">
+                <span class="btn-text">back to home</span>
+            </button>
+        </div>
+    </div>
+{{end}}
+{{define "js"}}
+    <script type="module">
+        import {ERROR_BUTTON} from "../static/js/screenElements.js";
+        ERROR_BUTTON.addEventListener("click", () => {
+            ERROR_BUTTON.classList.add("loading")
+            window.location.href = "/home"
+        })
+    </script>
+{{end}}

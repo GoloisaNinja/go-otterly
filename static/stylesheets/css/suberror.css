@@ -3,34 +3,35 @@
     transform: rotate(360deg);
   }
 }
-.contact-page-wrapper {
+.error-wrapper {
   display: flex;
   flex-direction: column;
   padding: 1rem 3rem;
   width: 100%;
   margin-top: 7.5rem;
   min-height: 100vh;
+  justify-content: center;
 }
 @media (max-width: 450px) {
-  .contact-page-wrapper {
+  .error-wrapper {
     padding: 3rem;
   }
 }
 @media (max-width: 450px) {
-  .contact-page-wrapper {
+  .error-wrapper {
     padding-top: 1rem;
     padding-left: 3rem;
     padding-right: 3rem;
   }
 }
 
-.contact-hero-wrapper {
+.error-content {
   margin-bottom: 5rem;
   line-height: 1;
   width: 100%;
 }
 
-.contact-hero-header {
+.error-text {
   font-size: 6rem;
   padding-top: 3rem;
   color: #fff;
@@ -38,61 +39,17 @@
   font-weight: 800;
 }
 @media (min-width: 1000px) {
-  .contact-hero-header {
+  .error-text {
     font-size: 8rem;
   }
 }
 
-.contact-hero-info {
+.error-subtext {
   font-size: 2.6rem;
   font-weight: 500;
   line-height: 1.2;
   color: #ccc;
   margin-top: 2rem;
-}
-
-.contact-form-wrapper {
-  display: flex;
-  flex-direction: column;
-  max-width: 750px;
-}
-.contact-form-wrapper > p {
-  font-size: 1.4rem;
-  color: #fff;
-  margin-bottom: 1rem;
-}
-
-.contact-form {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-}
-.contact-form > label {
-  font-size: 2rem;
-  font-weight: 700;
-  color: var(--LIGHT_PURPLE);
-}
-.contact-form > input, .contact-form textarea {
-  border: 2px solid #eee;
-  border-radius: 3px;
-  background-color: #eee;
-  font-size: 1.8rem;
-  padding: 1rem;
-  margin-bottom: 1rem;
-}
-.contact-form > input:focus, .contact-form textarea:focus {
-  border: 2px solid var(--LIGHT_PURPLE);
-}
-.contact-form > p {
-  align-self: flex-end;
-  font-size: 1.8rem;
-  color: var(--LIGHT_PURPLE);
-  margin-bottom: 3rem;
-}
-.contact-form > button:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-  pointer-events: none;
 }
 
 .btn.loading .btn-text {
@@ -118,4 +75,4 @@
   -webkit-animation: spin 1s ease-in-out infinite;
 }
 
-/*# sourceMappingURL=contact.css.map */
+/*# sourceMappingURL=suberror.css.map */

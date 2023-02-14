@@ -1,4 +1,5 @@
 @import "./mixins";
+@include Spin;
 
 .contact-page-wrapper {
   @include OverridePageWrapper;
@@ -49,13 +50,19 @@
     margin-bottom: 3rem;
   }
   > button {
-    opacity: .5;
-    cursor: not-allowed;
-    pointer-events: none;
-    &.isActive {
-      opacity: 1;
-      cursor: pointer;
-      pointer-events: all;
+    &:disabled {
+      opacity: .5;
+      cursor: not-allowed;
+      pointer-events: none;
     }
   }
+}
+.btn.loading .btn-text {
+  visibility: hidden;
+  opacity: 0;
+}
+.btn.loading::after {
+  @include ButtonLoading;
+  animation: spin 1s ease-in-out infinite;
+  -webkit-animation: spin 1s ease-in-out infinite;
 }

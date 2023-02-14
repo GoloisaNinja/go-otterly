@@ -26,29 +26,118 @@
         </div>
         <div class="contact-form-wrapper">
             <p>*all form fields required</p>
-            <form class="contact-form">
-                <label>Name</label>
-                <input/>
-                <label>Email</label>
-                <input/>
-                <p hidden><label>subject</label><input/>></p>
-                <label>Message</label>
-                <textarea id="contact-message-area" maxlength="1000" cols="30" rows="15"></textarea>
+            <form id="contact-form" class="contact-form">
+                <label for="name">Name</label>
+                <input id="contact-name" name="name" required />
+                <label for="email">Email</label>
+                <input id="contact-email" name="email" required />
+                <p hidden><label for="subject">subject</label><input id="contact-subject" name="subject" /></p>
+                <label for="message">Message</label>
+                <textarea id="contact-message-area" maxlength="1000" cols="30" rows="15" name="message" required></textarea>
                 <p><span id="contact-message-length"></span>/1000</p>
-                <button class="btn purple">coming soon</button>
+                <button id="contact-submit-button" type="submit" class="btn purple" disabled aria-disabled="true">
+                    <span class="btn-text">submit</span>
+                </button>
             </form>
         </div>
     </div>
 {{end}}
 {{define "js"}}
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.3.1/dist/axios.min.js"></script>
     <script type="module">
-        import {CONTACT_MESSAGE_AREA, CONTACT_MESSAGE_LENGTH} from "../static/js/screenElements.js";
+        import {CONTACT_NAME, CONTACT_EMAIL, CONTACT_MESSAGE_AREA,CONTACT_MESSAGE_LENGTH, CONTACT_SUBMIT_BUTTON, CONTACT_FORM} from "../static/js/screenElements.js";
         (function() {
             CONTACT_MESSAGE_LENGTH.innerHTML = "0"
         })()
-        CONTACT_MESSAGE_AREA.addEventListener("input", () => {
-            let currentTextLength = CONTACT_MESSAGE_AREA.value.length
-            CONTACT_MESSAGE_LENGTH.innerHTML = currentTextLength.toString()
+        const fs = formState()
+        function handleButtonState() {
+            if (fs.isFormFilled()) {
+                CONTACT_SUBMIT_BUTTON.removeAttribute("disabled")
+                CONTACT_SUBMIT_BUTTON.setAttribute("aria-disabled", "false")
+            } else {
+                CONTACT_SUBMIT_BUTTON.setAttribute("disabled", "true")
+                CONTACT_SUBMIT_BUTTON.setAttribute("aria-disabled", "true")
+            }
+        }
+        CONTACT_NAME.addEventListener("input", (e) => {
+            fs.setName(e.target.value)
+            handleButtonState()
         })
+        CONTACT_EMAIL.addEventListener("input", (e) => {
+            fs.setEmail(e.target.value)
+            handleButtonState()
+        })
+        CONTACT_MESSAGE_AREA.addEventListener("input", (e) => {
+            let currentTextLength = e.target.value.length
+            CONTACT_MESSAGE_LENGTH.innerHTML = currentTextLength.toString()
+            fs.setMessage(e.target.value)
+            handleButtonState()
+        })
+        CONTACT_FORM.addEventListener("submit", (e) => {
+            e.preventDefault()
+            CONTACT_SUBMIT_BUTTON.setAttribute("disabled", "true")
+            CONTACT_SUBMIT_BUTTON.setAttribute("aria-disabled", "true")
+            CONTACT_SUBMIT_BUTTON.classList.add("loading")
+            handleFormSubmission()
+        })
+
+        async function handleFormSubmission() {
+            const sEl = document.getElementById("contact-subject")
+            const subject = sEl.value
+            const { name, email, message } = fs.contactDetails()
+            const body = {
+                name,
+                email,
+                subject,
+                message,
+            }
+            try {
+                const resp = await axios.post("/api/contact-submission", body)
+                if (resp.data.Status === 200) {
+                    window.location.href = "/thank-you"
+                } else {
+                    window.location.href = "/submission-error"
+                }
+            } catch (e) {
+                console.log(e)
+                window.location.href = "/submission-error"
+            }
+        }
+        function formState() {
+            let name = ""
+            let email = ""
+            let message = ""
+
+            function setName(s) {
+                name = s
+            }
+            function setEmail(s) {
+                email = s
+            }
+            function setMessage(s) {
+                message = s
+            }
+            function contactDetails() {
+                return {
+                    name,
+                    email,
+                    message,
+                }
+            }
+            function isFormFilled() {
+                if (name.length && email.length && message.length) {
+                    return true
+                }
+                return false
+            }
+            return {
+                setName,
+                setEmail,
+                setMessage,
+                contactDetails,
+                isFormFilled,
+            }
+        }
+
     </script>
 {{end}}

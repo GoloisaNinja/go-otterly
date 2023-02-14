@@ -1,0 +1,43 @@
+{{template "base" .}}
+{{define "title"}}Otterly Ridiculous Games | Thank You Page{{end}}
+{{define "css"}}
+    <link rel="stylesheet" href="../static/stylesheets/css/thankyou.css" />
+{{end}}
+{{define "meta"}}
+    <meta name="description" content="Otterly Ridiculous Games - The best place on the web for ridiculous text adventure games you can play in your browser!" />
+    <meta property="og:title" content="Otterly Ridiculous Games | Thank You Page" />
+    <meta property="og:description" content="Otterly Ridiculous Games Thank You Page | Thank You for Contacting Otterly!" />
+    <meta property="og:image" content="../static/images/ohHai.png" />
+    <meta property="og:url" content="https://otterly.games/thank-you" />
+    <meta property="og:type" content="website" />
+    <meta property="twitter:card" content="../static/images/ohHai.png" />
+    <meta property="twitter:title" content="Otterly Ridiculous Games Thank You Page | Thank You for Contacting Otterly!" />
+    <meta property="twitter:description" content="Otterly Ridiculous Games Thank You Page | Thank You for Contacting Otterly!" />
+    <meta property="twitter:image" content="../static/images/ohHai.png" />
+{{end}}
+{{define "content"}}
+    <div class="thankyou-wrapper">
+        <div class="thankyou-content">
+            <h1 class="thankyou-text">We <span class="purple-span">Otterly</span> Thank You!</h1>
+            <p class="thankyou-subtext">
+                Your form submission is complete and the team at Otterly wil be reviewing it shortly!
+                We don't want to brag (we actually do), but we are super popular, so please be sure
+                and give us a few days to get back to you! We promise, we're worth it.
+            </p>
+        </div>
+        <div class="thankyou-btn-wrapper">
+            <button id="thankyou-btn" class="btn purple">
+                <span class="btn-text">back to home</span>
+            </button>
+        </div>
+    </div>
+{{end}}
+{{define "js"}}
+    <script type="module">
+    import {THANKYOU_BUTTON} from "../static/js/screenElements.js";
+        THANKYOU_BUTTON.addEventListener("click", () => {
+            THANKYOU_BUTTON.classList.add("loading")
+            window.location.href = "/home"
+        })
+    </script>
+{{end}}

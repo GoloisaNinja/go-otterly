@@ -15,8 +15,11 @@ func routes(app *config.AppConfig) http.Handler {
 	r.HandleFunc("/contact", handlers.Repo.Contact)
 	r.HandleFunc("/games", handlers.Repo.Games)
 	r.HandleFunc("/games/{id}", handlers.Repo.Game)
+	r.HandleFunc("/thank-you", handlers.ThankYou)
+	r.HandleFunc("/submission-error", handlers.SubmissionError)
 	// api routes
 	r.HandleFunc("/api/gameNode", handlers.Repo.GetNode).Methods("POST")
+	r.HandleFunc("/api/contact-submission", handlers.HandleContactSubmission).Methods("POST")
 	// load static assets
 	staticFileDir := http.Dir("static")
 	staticFileHandler := http.StripPrefix("/static/", http.FileServer(staticFileDir))

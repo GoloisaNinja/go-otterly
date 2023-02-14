@@ -1,0 +1,25 @@
+@import "./mixins";
+@include Spin;
+
+.error-wrapper {
+  @include OverridePageWrapper;
+  justify-content: center;
+}
+.error-content {
+  @include HeroWrapper;
+}
+.error-text {
+  @include HeroText;
+}
+.error-subtext {
+  @include HeroSubText;
+}
+.btn.loading .btn-text {
+  visibility: hidden;
+  opacity: 0;
+}
+.btn.loading::after {
+  @include ButtonLoading;
+  animation: spin 1s ease-in-out infinite;
+  -webkit-animation: spin 1s ease-in-out infinite;
+}
