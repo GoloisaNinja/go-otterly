@@ -5,6 +5,7 @@ import (
 	"github.com/GoloisaNinja/go-otterly/pkg/handlers"
 	"github.com/GoloisaNinja/go-otterly/pkg/helpers"
 	"github.com/GoloisaNinja/go-otterly/pkg/render"
+	"github.com/joho/godotenv"
 	"log"
 	"net/http"
 	"os"
@@ -14,7 +15,7 @@ var app config.AppConfig
 var gc config.GameConfig
 
 func main() {
-
+	godotenv.Load(".env")
 	port := ":" + os.Getenv("PORT")
 	if port == ":" {
 		port = ":8000"
