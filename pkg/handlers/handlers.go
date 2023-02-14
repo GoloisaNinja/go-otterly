@@ -8,13 +8,11 @@ import (
 	"github.com/GoloisaNinja/go-otterly/pkg/models"
 	"github.com/GoloisaNinja/go-otterly/pkg/render"
 	"github.com/aws/aws-sdk-go/aws"
-	"github.com/aws/aws-sdk-go/aws/credentials"
 	"github.com/aws/aws-sdk-go/aws/session"
 	"github.com/gorilla/mux"
 	"io"
 	"log"
 	"net/http"
-	"os"
 )
 
 var Repo *Repository
@@ -164,13 +162,10 @@ func HandleContactSubmission(w http.ResponseWriter, r *http.Request) {
 	toAddresses := []*string{
 		aws.String("jonathan.collins@live.com"),
 	}
-	AKID := os.Getenv("AWS_ACCESS_KEY_ID")
-	SAK := os.Getenv("AWS_SECRET_ACCESS_KEY")
 	sess, err := session.NewSessionWithOptions(session.Options{
 		Profile: "default",
 		Config: aws.Config{
-			Region:      aws.String("us-east-1"),
-			Credentials: credentials.NewStaticCredentials(AKID, SAK, ""),
+			Region: aws.String("us-east-1"),
 		},
 	})
 	if err != nil {
