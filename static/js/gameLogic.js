@@ -38,6 +38,7 @@ function setNewNodeOptions(gs, arr) {
     })
     USER_INPUT.removeAttribute("disabled")
     USER_INPUT.value = ""
+    USER_INPUT.focus({preventScroll: true})
 }
 
 function HandleAfterAction(gs) {
