@@ -99,7 +99,7 @@
 .game-text-wrapper {
   display: flex;
   flex-direction: column;
-  padding: 1rem;
+  padding: 2rem;
   background-color: black;
   justify-content: center;
   flex: 1;
@@ -154,7 +154,7 @@
   opacity: 90%;
 }
 .spinner-overlay.isActive {
-  display: inline-block;
+  display: block;
 }
 
 /*# sourceMappingURL=games.css.map */

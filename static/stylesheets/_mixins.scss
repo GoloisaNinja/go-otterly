@@ -162,7 +162,7 @@
   background-color: #0a0a0a;
   opacity: 90%;
   &.isActive {
-    display: inline-block;
+    display: block;
   }
 }
 @mixin ButtonLoading {

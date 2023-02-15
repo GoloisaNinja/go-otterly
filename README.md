@@ -35,7 +35,8 @@
 - [ ] One Way or the Otter full game added 
 - [x] About Page with new assets
 - [x] Contact Page Routing
-- [ ] Contact Page Go Backend handling
+- [x] Contact Page Go Backend handling
+- [x] Integrate AWS SES
 - [x] Enhanced footer with social links to my socials
 - [ ] Attribution page for cool pixel art artists
 - [ ] Get recognized and, by proxy, rich and stuff

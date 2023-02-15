@@ -98,5 +98,7 @@ export function InventoryModalDismiss() {
 export function HandleGameCardClick(element, id) {
     let spinnerEls = document.querySelectorAll(`#spinner${id}`)
     spinnerEls.forEach((el) => el.classList.add('isActive'))
-    element.click()
+    setTimeout(() => {
+        element.click()
+    }, 2000)
 }
