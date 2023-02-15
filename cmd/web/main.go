@@ -21,7 +21,7 @@ func main() {
 		port = ":8000"
 	}
 
-	app.IsProduction = false
+	app.IsProduction = true
 	helpers.LoadGames(&gc)
 	tc, err := render.CreateTemplateCache()
 	if err != nil {
@@ -29,7 +29,7 @@ func main() {
 	}
 
 	app.TemplateCache = tc
-	app.UseCache = false
+	app.UseCache = true
 	repo := handlers.NewRepository(&app, &gc)
 	handlers.NewHandlers(repo)
 	render.NewTemplates(&app)
