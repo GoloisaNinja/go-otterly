@@ -55,6 +55,7 @@
   display: flex;
   flex-direction: column;
   max-width: 750px;
+  margin-top: 7.5rem;
 }
 .contact-form-wrapper > p {
   font-size: 1.4rem;

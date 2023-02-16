@@ -63,6 +63,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 3rem;
+  margin-top: 7.5rem;
 }
 @media (max-width: 900px) {
   .games-grid {
