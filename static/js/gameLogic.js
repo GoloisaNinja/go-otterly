@@ -79,6 +79,7 @@ function HandleAfterAction(gs) {
 
 export async function GetNodeAndAlignState(gs, nodeId) {
     const body = {
+        gameId: gs.getGameID(),
         nextNode: nodeId,
         status: gs.getStatus(),
         inventory: gs.getInventory()
@@ -89,7 +90,7 @@ export async function GetNodeAndAlignState(gs, nodeId) {
     }
     // reset all state if nodeId === 1
     if (nodeId === "1") {
-        gs.resetState(gs.getGameTitle(), gs.getTotalNodes())
+        gs.resetState(gs.getGameID(), gs.getGameTitle(), gs.getTotalNodes())
     }
     USER_INPUT.value = "...computing input"
     USER_INPUT.setAttribute("disabled", "true")

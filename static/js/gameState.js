@@ -1,6 +1,7 @@
 import {INVENTORY_MENU, POINTS, STATUS} from "./screenElements.js";
 
 const initialState = {
+    gameID: null,
     nodeID: null,
     gameTitle: "",
     totalNodes: 0,
@@ -27,6 +28,13 @@ const initialState = {
 export function gameState() {
 
     let state = {...initialState}
+
+    function getGameID() {
+        return state.gameID
+    }
+    function setGameID(id) {
+        state.gameID = id
+    }
 
     function getNodeID() {
         return state.nodeID
@@ -162,13 +170,15 @@ export function gameState() {
     }
 
 
-    function resetState(gt, tn) {
-        state = {...initialState, gameTitle: gt, totalNodes: tn}
+    function resetState(gi, gt, tn) {
+        state = {...initialState, gameID: gi, gameTitle: gt, totalNodes: tn}
         setStatus(state.status)
         resetInventory()
     }
 
     return {
+        getGameID,
+        setGameID,
         getNodeID,
         setNodeID,
         getGameTitle,

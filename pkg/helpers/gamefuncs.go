@@ -21,7 +21,7 @@ func LoadGames(gc *config.GameConfig) {
 
 func LoadGame(gc *config.GameConfig, id string) bool {
 	for _, game := range gc.Games {
-		if game.ID == id {
+		if game.ID == id && game.IsAvailable {
 			gc.Game = game
 			return true
 		}

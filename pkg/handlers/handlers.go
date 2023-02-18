@@ -122,6 +122,15 @@ func (e *Repository) GetNode(w http.ResponseWriter, r *http.Request) {
 	}
 	var rb models.NodeReqBody
 	json.Unmarshal(rBody, &rb)
+	// Need to make sure I've got a game loaded
+	if e.GC.Game.ID == "" {
+		// If somehow the gameid is bad render notfound page and redirect to games
+		ok := helpers.LoadGame(e.GC, rb.GameID)
+		if !ok {
+			render.RenderTemplate(w, "notfound.page.tmpl", &models.TemplateData{})
+			return
+		}
+	}
 	n, err := helpers.FindRequestedNode(e.GC, rb.NextNode)
 	if err != nil {
 		en := models.EmptyGameNode

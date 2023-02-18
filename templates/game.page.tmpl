@@ -59,11 +59,13 @@
         import {GetNodeAndAlignState, ReturnNextNode} from "../static/js/gameLogic.js";
 
         const gs = gameState()
-        const gameTitle = {{.Data.game.Title}}
-        const totalNodes = {{.Data.game.TotalNodes}}
         const defaultOptions = {{.Data.game.Node.Options}}
-        GameStartUp(gs, gameTitle, totalNodes)
-
+        // Set the GameID, Title and Total Nodes
+        gs.setGameID({{.Data.game.GameID}})
+        gs.setGameTitle({{.Data.game.Title}})
+        gs.setTotalNodes({{.Data.game.TotalNodes}})
+        // Initiate game start up setting listeners and executing loading
+        GameStartUp(gs)
         async function handleInput(userCommand) {
             const cleanUC = userCommand.toLowerCase().trim()
             const nextNode = ReturnNextNode(gs, cleanUC, defaultOptions)

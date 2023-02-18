@@ -3,7 +3,7 @@ import {BODY,GAME_AREA,MENU_BUTTONS,THEME_TOGGLE_BTN, RESET_BUTTON,GAME_OPTIONS,
 import {GetNodeAndAlignState} from "./gameLogic.js";
 import {ExecuteLoadingScreen} from "./loadingScreen.js";
 
-export function GameStartUp(gs, gameTitle, totalNodes) {
+export function GameStartUp(gs) {
     // IIFE to check/set theme from local storage
     (function() {
         if (localStorage.getItem("game-theme") !== null) {
@@ -24,11 +24,9 @@ export function GameStartUp(gs, gameTitle, totalNodes) {
     const inv = gs.getInventory()
     const status = gs.getStatus()
     const points = gs.getPoints()
-    // Set the Game Title and Total Nodes
-    gs.setGameTitle(gameTitle)
-    gs.setTotalNodes(totalNodes)
+
     // Run the Loading Screen Func Animation
-    ExecuteLoadingScreen(gameTitle) // Comment this out to bypass loading during dev
+    ExecuteLoadingScreen(gs.getGameTitle()) // Comment this out to bypass loading during dev
     // Set event listeners for the game area and the menu buttons
     GAME_AREA.addEventListener("click", CheckMenuDropDowns)
     MENU_BUTTONS.forEach((node) => {
