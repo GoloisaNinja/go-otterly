@@ -443,7 +443,7 @@ var OneWayOrTheOtter = models.Game{
 					Mood:    "calm",
 					HasReqs: true,
 					Requires: models.OptionReqs{
-						Mood: "short cicuit",
+						Mood: "short circuit",
 					},
 					Inventory: "",
 					NextNode:  "20",
