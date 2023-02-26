@@ -4,7 +4,7 @@
     <link rel="stylesheet" href="../static/stylesheets/css/contact.css"/>
 {{end}}
 {{define "meta"}}
-    <meta name="description" content="Contact the Otterly Text Adventure Team" />
+    <meta name="description" content="Contact the Otterly Text Adventure Team and ask us about text adventure games, upcoming ridiculous titles, or just say hi!" />
     <meta property="og:title" content="Otterly Ridiculous Games | Contact Page" />
     <meta property="og:description" content="Contact the Otterly Text Adventure Team" />
     <meta property="og:image" content="../static/images/ohHai.png" />
@@ -12,7 +12,7 @@
     <meta property="og:type" content="website" />
     <meta property="twitter:card" content="../static/images/ohHai.png" />
     <meta property="twitter:title" content="Otterly Ridiculous Games | Contact Page" />
-    <meta property="twitter:description" content="Contact the Otterly Text Adventure Team" />
+    <meta property="twitter:description" content="Contact the Otterly Text Adventure Team and ask us about text adventure games, upcoming ridiculous titles, or just say hi!" />
     <meta property="twitter:image" content="../static/images/ohHai.png" />
     <meta property="robots" content="none" />
 {{end}}
@@ -29,9 +29,9 @@
             <p>*all form fields required</p>
             <form id="contact-form" class="contact-form">
                 <label for="name">Name</label>
-                <input id="contact-name" name="name" required />
+                <input id="contact-name" name="name" type="text" required />
                 <label for="email">Email</label>
-                <input id="contact-email" name="email" required />
+                <input id="contact-email" name="email" type="email" required />
                 <p hidden><label for="subject">subject</label><input id="contact-subject" name="subject" /></p>
                 <label for="message">Message</label>
                 <textarea id="contact-message-area" maxlength="1000" cols="30" rows="15" name="message" required></textarea>
@@ -125,8 +125,12 @@
                     message,
                 }
             }
+            function isBasicEmailFormat() {
+                const regex = /\w+@\w+\.\w+/gi
+                return regex.test(email)
+            }
             function isFormFilled() {
-                if (name.length && email.length && message.length) {
+                if (name.length && isBasicEmailFormat() && message.length) {
                     return true
                 }
                 return false
